@@ -1,6 +1,6 @@
 import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
 
-class CurrencyBlock extends LitElement {
+class CurrencyWidget extends LitElement {
   static properties = {
     header: { type: String },
   }
@@ -26,4 +26,4 @@ class CurrencyBlock extends LitElement {
   }
 }
 
-customElements.define('widget-block', CurrencyBlock);
+customElements.define('currency-widget', CurrencyWidget);
