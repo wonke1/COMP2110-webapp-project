@@ -3,6 +3,9 @@ import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/co
 class WeatherWidget extends LitElement {
   static properties = {
     header: { type: String },
+    location: {type: Object},
+    forecast: {type: Object},
+    loading: {type: boolean}
   }
 
   static styles = css`
