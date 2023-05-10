@@ -2,7 +2,7 @@ import {LitElement, html, css} from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core
 import './components/widget-block.js';
 import './components/blog-block.js';
 import './components/currency-widget.js';
-import './components/dayFact-widget.js';
+import './components/fact-widget.js';
 import './components/widget-column.js';
 import './components/ad-widget.js';
 import './components/login-widget.js';
@@ -51,8 +51,8 @@ class Comp2110Portal extends LitElement {
 
       <main>
         <widget-column header="Left">
-          <dayFact-widget header="Fun Fact of the Day"></widget-block>
-          <currency-widget header="Currency Conversion"></widget-block>
+          <fact-widget header="Fun Fact of the Day"></fact-widget>
+          <currency-widget header="Currency Conversion"></currency-widget>
           <widget-block header="Third Widget"></widget-block>
         </widget-column>
         <blog-block></blog-block>       
