@@ -3,6 +3,7 @@ import './components/widget-block.js';
 import './components/blog-block.js';
 import './components/currency-widget.js';
 import './components/fact-widget.js';
+import './components/weather-widget.js';
 import './components/widget-column.js';
 import './components/ad-widget.js';
 import './components/login-widget.js';
