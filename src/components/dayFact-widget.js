@@ -1,11 +1,8 @@
 import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
 
-class WeatherWidget extends LitElement {
+class dayFact extends LitElement {
   static properties = {
     header: { type: String },
-    location: {type: Object},
-    forecast: {type: Object},
-    loading: {type: boolean}
   }
 
   static styles = css`
@@ -29,4 +26,4 @@ class WeatherWidget extends LitElement {
   }
 }
 
-customElements.define('weather-widget', WeatherWidget);
+customElements.define('dayFact-widget', dayFact);
