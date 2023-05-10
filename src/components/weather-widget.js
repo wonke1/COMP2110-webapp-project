@@ -44,15 +44,23 @@ class CurrencyWidget extends LitElement {
         }
     }
     // setting the url to use when fetching data from API
-    const apiURL =  `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&models=best_match&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum&current_weather=true&timezone=auto`
+    const apiURL =  `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum&forecast_days=1&timezone=auto`
 
     fetch (apiURL)
         .then(response => response.text())
         .then(data => {
-            //The weather data recieved is set 
-             this.textContent = data;
+            //The weather data received is set to variables 
+             var timezone = data['timezone'];
+             var temp = data['daily']['tempurature'];
+             var windspeed = data['daily']['windspeed'];
+             var maxTemp = data['daily']['data.temperature_2m_max'][0];
+             var minTemp = data['daily']['data.temperature_2m_min'][0];
+             var precipSum = data['daily']['data.precipitation_sum'][0];
+             var sunrise = data['daily']['sunrise'][0];
+             var sunset = data['daily']['sunset'][0];
         })
-        .catch(error => console.error(error));
+          .catch(error => console.error(error));
+    
   }
 
   render() {
