@@ -3,16 +3,46 @@ import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/co
 class fact extends LitElement {
   static properties = {
     header: { type: String },
-    _data: {type: String}
+    _data: {state: true}
   }
 
   static styles = css`
-    :host {
-      display: block;
-        width: 250px;
-        height: 250px;
-        background-color: azure;
-    }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-family: sans-serif;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .date {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .fact {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .divider {
+    width: 80%;
+    margin: 20px 0;
+    border: 1px solid #ccc;
+  }
   `;
 
   constructor() {
@@ -38,11 +68,21 @@ class fact extends LitElement {
 
 
   render() {
-    return html`
-        <h3>${this.header}</h3>
-        <title>Fun fact about today's Date!</title>
-        <p>${this._data}</p>
+    if (this._data){
+      return html`
+          <div class="container">
+          <div class="title">Today's Date</div>
+          <div class="date">${new Date().toDateString()}</div>
+          <div class="divider"></div>
+          <div class="title">Fun fact about today</div>
+          <div class="fact">${this._data}</div>
+          
+          
+      </div>
     `;
+    }else{
+      return html`<p>Loading...</p>`
+    }
   }
 }
 
