@@ -3,7 +3,7 @@ import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/co
 class fact extends LitElement {
   static properties = {
     header: { type: String },
-    textContent: {type: String}
+    _data: {type: String}
   }
 
   static styles = css`
@@ -31,7 +31,7 @@ class fact extends LitElement {
       .then(response => response.text())
       .then(data => {
         //The fun fact recieved is set 
-        this.textContent = data;
+        this._data = data;
       })
       .catch(error => console.error(error));
   }
