@@ -10,13 +10,14 @@ class CurrencyWidget extends LitElement {
         display: block;
         width: 250px;
         height: 250px;
-        background-color: azure;
+        background-color: white;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     }
     .title {
+      margin: 10%;
+      padding: 1.5%;
       bottom: 10%;
-      font-family: sans-serif;
       font-size: 15px;
       font-weigth: 1000;
     }
@@ -39,7 +40,15 @@ class CurrencyWidget extends LitElement {
     }
 
     #box {
+      cursor: crosshair;
       width: 50px;
+    }
+
+    #Button {
+      width: 200px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      padding: 2%;
+      cursor: crosshair;
     }
   `;
 
@@ -84,7 +93,7 @@ class CurrencyWidget extends LitElement {
                 <select id="box"></select>
             </div>
       
-            <button>Convertion!</button>
+            <button id="Button">Convert!</button>
         </form>
         <div id="Result"></div>
        </div>
