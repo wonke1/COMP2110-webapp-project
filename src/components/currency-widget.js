@@ -11,6 +11,35 @@ class CurrencyWidget extends LitElement {
         width: 250px;
         height: 250px;
         background-color: azure;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+    .title {
+      bottom: 10%;
+      font-family: sans-serif;
+      font-size: 15px;
+      font-weigth: 1000;
+    }
+    .convertForm {
+      display: block;
+      flex-direction: column;
+      margin: 10px;
+    }
+
+    .amount {
+      font-size: 20px;
+      margin: 10px;
+
+    }
+
+    .CurrencySelector {
+      align-items: center;
+      font-size: 20px;
+      margin: 10px;
+    }
+
+    #box {
+      width: 50px;
     }
   `;
 
@@ -43,16 +72,16 @@ class CurrencyWidget extends LitElement {
         </div>
 
         <form id="convertForm">
-            <div>
-                <label for="amount">Amount</label>
+            <div class="amount">
+                <label>Amount</label>
                 <input type="number" id="amount" value="0">
             </div>
-            <div>
-                <label for="From">From</label>
-                <select id="From"></select>
+            <div class="CurrencySelector">
+                <label>From</label>
+                <select id="box"></select>
 
-                <label for="To">To</label>
-                <select id="To"></select>
+                <label>To</label>
+                <select id="box"></select>
             </div>
       
             <button>Convertion!</button>
