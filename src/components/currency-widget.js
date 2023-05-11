@@ -7,7 +7,7 @@ class CurrencyWidget extends LitElement {
 
   static styles = css`
     :host {
-        display: block;
+        display: flex;
         width: 250px;
         height: 250px;
         background-color: azure;
@@ -16,12 +16,45 @@ class CurrencyWidget extends LitElement {
 
   constructor() {
     super();
-    this.header = 'Widget';
+    this.header = 'Currency Conversion';
+    
+
+    const apiUrl = "https://api.exchangerate.host/convert?from=AUD&to=EUR"; 
   }
+
+  fetch(apiUrl) {
+
+  }
+    
 
   render() {
     return html`
-        <h3>${this.header}</h3>
+       <body>
+       <div id="currency-converter">
+        <div class="title">
+            <h1> 
+                Currency Converter
+            </h1>
+        </div>
+
+        <form id="convertForm">
+            <div>
+                <label for="amount">Amount</label>
+                <input type="number" id="amount" value="0">
+            </div>
+            <div>
+                <label for="From">From</label>
+                <select id="From"></select>
+                
+                <label for="To">To</label>
+                <select id="To"></select>
+            </div>
+      
+            <button>Convertion!</button>
+        </form>
+        <div id="Result"></div>
+       </div>
+      </body>
     `;
   }
 }
