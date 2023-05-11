@@ -7,7 +7,7 @@ class CurrencyWidget extends LitElement {
 
   static styles = css`
     :host {
-        display: flex;
+        display: block;
         width: 250px;
         height: 250px;
         background-color: azure;
@@ -45,7 +45,7 @@ class CurrencyWidget extends LitElement {
             <div>
                 <label for="From">From</label>
                 <select id="From"></select>
-                
+
                 <label for="To">To</label>
                 <select id="To"></select>
             </div>
