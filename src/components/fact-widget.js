@@ -18,7 +18,7 @@ class fact extends LitElement {
   constructor() {
     super();
     this.header = 'Widget';
-    const today = Date();
+    const today = new Date();
     const month = today.getMonth() + 1;
     const day = today.getDate();
 
@@ -41,7 +41,7 @@ class fact extends LitElement {
     return html`
         <h3>${this.header}</h3>
         <title>Fun fact about today's Date!</title>
-        <p>${this.textContent}</p>
+        <p>${this._data}</p>
     `;
   }
 }
