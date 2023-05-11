@@ -20,11 +20,16 @@ class CurrencyWidget extends LitElement {
     
 
     const apiUrl = "https://api.exchangerate.host/convert?from=AUD&to=EUR"; 
+    fetch(apiUrl) 
+       .then(response => response.json())
+       .then(data => {
+          this._data = data;
+       })
+     .catch(error => console.error(error));
+  
   }
 
-  fetch(apiUrl) {
-
-  }
+ 
     
 
   render() {
