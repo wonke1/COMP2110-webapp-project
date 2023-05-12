@@ -13,6 +13,7 @@ class fact extends LitElement {
     align-items: center;
     justify-content: center;
     height: 100%;
+    width: 250px;
     font-family: sans-serif;
     background-color: #fff;
     border-radius: 10px;
