@@ -2,7 +2,8 @@ import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/co
 
 class CurrencyWidget extends LitElement {
   static properties = {
-    header: { type: String },
+    Currency: { type: String },
+    _data: { state: Object }
   }
 
   static styles = css`
@@ -20,7 +21,6 @@ class CurrencyWidget extends LitElement {
     }
 
     .title {
-
       margin-top: 30px;
       margin: 20px;
       font-size: 15px;
@@ -38,7 +38,12 @@ class CurrencyWidget extends LitElement {
       margin: 10px;
     }
 
-    #box {
+    #box1 {
+      cursor: crosshair;
+      width: 55px;
+    }
+
+    #box2 {
       cursor: crosshair;
       width: 55px;
     }
@@ -53,20 +58,48 @@ class CurrencyWidget extends LitElement {
   constructor() {
     super();
     this.header = 'Currency Conversion';
-    
+    this.amount = 0;
+    this.fromCurrency = 'AUD';
+    this.toCurrency = 'EUR';
+  }
 
-    const apiUrl = "https://api.exchangerate.host/convert?from=AUD&to=EUR"; 
-    fetch(apiUrl) 
+  static BASE_URL = "https://api.exchangerate.host"
+    
+  _fetch() {
+    const url = `${CurrencyWidget.BASE_URL}/convert?from=${this.fromCurrency}&to=${this.toCurrency}&amount=${this.amount}`
+    fetch(url) 
        .then(response => response.json())
        .then(data => {
           this._data = data;
+          this.requestUpdate();
+
+          const resultElement = this.shadowRoot.querySelector('#result');
+          resultElement.innerHTML = `${this.amount} ${this.fromCurrency} = ${data.result} ${this.toCurrency}`;
        })
      .catch(error => console.error(error));
-  
+
   }
 
- 
-    
+  connectedCallback() {
+    super.connectedCallback();
+  }
+  
+  _AmountChange(event) {
+    this.amount = event.target.value;
+  }
+
+  _FromCurrencyChange(event) {
+    this.fromCurrency = event.target.value;
+  }
+
+  _ToCurrencyChange(event) {
+    this.toCurrency = event.target.value;
+  }
+
+  _ConvertClick(event) {
+    event.preventDefault();
+    this._fetch();
+  }
 
   render() {
     return html`
@@ -79,27 +112,29 @@ class CurrencyWidget extends LitElement {
         <form id="convertForm">
             <div class="amount">
                 <label>Amount</label>
-                <input type="number" id="amount" value="0">
+                <input type="number" id="amount" value="${this.amount}" @input="${this._AmountChange}"/>
             </div>
             <div class="CurrencySelector">
                 <label>From</label>
-                <select id="box">
-                  <option value="AUD">AUD</option>
-                  <option value="EUR">EUR</option>
-                  <option value="USD">USD</option>
+                <select id="box1" @change="${this._FromCurrencyChange}">
+                  <option value="AUD" ?selected="${this.fromCurrency === 'AUD'}">AUD</option>
+                  <option value="EUR" ?selected="${this.fromCurrency === 'EUR'}">EUR</option>
+                  <option value="USD" ?selected="${this.fromCurrency === 'USD'}">USD</option>
+                  <option value="GBP" ?selected="${this.fromCurrency === 'GBP'}">GBP</option>
                 </select>
 
                 <label>To</label>
-                <select id="box">
-                  <option value="AUD">AUD</option>
-                  <option value="EUR">EUR</option>
-                  <option value="USD">USD</option>
+                <select id="box2" @change="${this._ToCurrencyChange}">
+                  <option value="AUD" ?selected="${this.toCurrency === 'AUD'}">AUD</option>
+                  <option value="EUR" ?selected="${this.toCurrency === 'EUR'}">EUR</option>
+                  <option value="USD" ?selected="${this.toCurrency === 'USD'}">USD</option>
+                  <option value="GBP" ?selected="${this.toCurrency === 'GBP'}">GBP</option>
                 </select>
             </div>
       
-            <button id="Button">Convert!</button>
-        </form>
-        <div id="Result"></div>
+            <button id="Button" type="button" @click="${this._ConvertClick}">Convert!</button>
+        </form> 
+        <div id="result"></div>
        </div>
     `;
   }
