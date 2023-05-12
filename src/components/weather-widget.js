@@ -34,8 +34,7 @@ class WeatherWidget extends LitElement {
     static styles = css `
     :host {
         margin-top: 10%;
-        padding-top: 1.5%;
-        padding-bottom: 3%;
+        padding-top, padding-bottom: 1.5%;
         display: block;
         width: 250px;
         height: 250px;
@@ -48,7 +47,20 @@ class WeatherWidget extends LitElement {
     }
     #status {
         font-size: 10px;
-        margin: 0;
+        margin: -4%;
+    }
+    #weatherInfo {
+        font-size: 80%;
+        text-align: center;
+    }
+    #weatherData {
+        font-size: 120%;
+    }
+    #find-me:hover {
+        filter: invert(100%);
+    }
+    #find-me:active {
+        
     }
     `;
 
@@ -90,14 +102,12 @@ class WeatherWidget extends LitElement {
         console.log(this.timezone, this.maxTemp, this.minTemp, this.precipSum, this.sunrise, this.sunset);
         return html `
             <h3>${this.header}</h3>
-            <title>Todays Weather</title>
-            <p>Timezone: ${this.timezone}<br>
-            maxTemp: ${this.maxTemp}${this.tempUnit}<br>
-            minTemp: ${this.minTemp}${this.tempUnit}<br>
-            precipSum: ${this.precipSum}${this.precipUnit}<br>
-            sunrise: ${this.sunrise.substring(11,)}<br>
-            sunset: ${this.sunset.substring(11,)}</p>
-            <button id="find-me">Change to my location</button><br />
+            <title>Todays' Weather</title>
+            <p id='weatherInfo'>Timezone <br><span id='weatherData'>${this.timezone}</span><br>
+            Min. Tempurature <br><span id='weatherData'>${this.minTemp}${this.tempUnit}</span><br>
+            Max. Tempurature <br><span id='weatherData'>${this.maxTemp}${this.tempUnit}</span><br>
+            Sum of Precipitation <br><span id='weatherData'>${this.precipSum}${this.precipUnit}</span></p>
+            <button id="find-me">Set to my location</button> <br>
             <p id="status"></p>
             `;  
     };
@@ -111,8 +121,9 @@ class WeatherWidget extends LitElement {
                 const latitude = position.coords.latitude.toFixed(2);
                 const longitude = position.coords.longitude.toFixed(2);
                 console.log(latitude, longitude);
-                statusBtn.textContent = `Latitude: ${latitude}, Longitude: ${longitude}`;
-
+                statusBtn.innerHTML = `Current Location: <br>Latitude: ${latitude}, Longitude: ${longitude}`;
+                this.latitude = latitude;
+                this.longitude = longitude;
                 const apiURL = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum&forecast_days=1&timezone=auto`;
                 fetch(apiURL)
                   .then(response => response.json())
@@ -145,10 +156,8 @@ class WeatherWidget extends LitElement {
 
         const findMeBtn = this.shadowRoot.querySelector('#find-me');
         findMeBtn.removeEventListener('click', this.geoFindMe);
-        findMeBtn.addEventListener('click', this.geoFindMe);
 
         this.geoFindMe = geoFindMe.bind(this);
-
         findMeBtn.addEventListener('click', this.geoFindMe);
     };
 }
