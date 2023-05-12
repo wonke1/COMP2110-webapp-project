@@ -14,23 +14,22 @@ class CurrencyWidget extends LitElement {
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     }
-    .title {
-      margin: 10%;
-      padding: 1.5%;
-      bottom: 10%;
-      font-size: 15px;
-      font-weigth: 1000;
+
+    #convertForm {
+      padding:1.5%;
     }
-    .convertForm {
-      display: block;
-      flex-direction: column;
-      margin: 10px;
+
+    .title {
+
+      margin-top: 30px;
+      margin: 20px;
+      font-size: 15px;
+      font-weigth: 900;
     }
 
     .amount {
       font-size: 20px;
       margin: 10px;
-
     }
 
     .CurrencySelector {
@@ -41,13 +40,12 @@ class CurrencyWidget extends LitElement {
 
     #box {
       cursor: crosshair;
-      width: 50px;
+      width: 55px;
     }
 
     #Button {
       width: 200px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-      padding: 2%;
       cursor: crosshair;
     }
   `;
@@ -72,14 +70,12 @@ class CurrencyWidget extends LitElement {
 
   render() {
     return html`
-       <body>
-       <div id="currency-converter">
+       <div class="currency-converter">
         <div class="title">
             <h1> 
                 Currency Converter
             </h1>
         </div>
-
         <form id="convertForm">
             <div class="amount">
                 <label>Amount</label>
@@ -87,17 +83,24 @@ class CurrencyWidget extends LitElement {
             </div>
             <div class="CurrencySelector">
                 <label>From</label>
-                <select id="box"></select>
+                <select id="box">
+                  <option value="AUD">AUD</option>
+                  <option value="EUR">EUR</option>
+                  <option value="USD">USD</option>
+                </select>
 
                 <label>To</label>
-                <select id="box"></select>
+                <select id="box">
+                  <option value="AUD">AUD</option>
+                  <option value="EUR">EUR</option>
+                  <option value="USD">USD</option>
+                </select>
             </div>
       
             <button id="Button">Convert!</button>
         </form>
         <div id="Result"></div>
        </div>
-      </body>
     `;
   }
 }
