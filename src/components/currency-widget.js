@@ -11,7 +11,7 @@ class CurrencyWidget extends LitElement {
         display: block;
         width: 250px;
         height: 250px;
-        background-color: white;
+        background-color: #e2cefd;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     }

@@ -33,8 +33,6 @@ class WeatherWidget extends LitElement {
 
     static styles = css `
     :host {
-        margin-top: 10%;
-        padding-top, padding-bottom: 1.5%;
         display: block;
         width: 250px;
         height: 250px;
@@ -62,6 +60,14 @@ class WeatherWidget extends LitElement {
     }
     #find-me:active {
         filter: invert(40%);
+    }
+    #find-me {
+
+    }
+    .title {
+        font-size: 100%;
+        font-weight: bold;
+        padding-top: 5%;
     }
     `;
 
@@ -102,8 +108,7 @@ class WeatherWidget extends LitElement {
             return html `Loading Weather Data...`;
         console.log(this.timezone, this.maxTemp, this.minTemp, this.precipSum, this.sunrise, this.sunset);
         return html `
-            <h3>${this.header}</h3>
-            <title>Todays' Weather</title>
+            <div class='title'>Todays' Weather</div>
             <p id='weatherInfo'>Timezone <br><span id='weatherData'>${this.timezone}</span><br>
             Min. Tempurature <br><span id='weatherData'>${this.minTemp}${this.tempUnit}</span><br>
             Max. Tempurature <br><span id='weatherData'>${this.maxTemp}${this.tempUnit}</span><br>

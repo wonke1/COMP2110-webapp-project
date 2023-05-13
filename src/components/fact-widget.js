@@ -8,41 +8,38 @@ class fact extends LitElement {
 
   static styles = css`
   .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
+    display: block;
     width: 250px;
-    font-family: sans-serif;
-    background-color: #fff;
+    height: auto;
+    min-height: 250px;
+    background-color: #cee1fd;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    padding: 20px;
   }
 
   .title {
-    font-size: 28px;
+    font-size: 100%;
     font-weight: bold;
-    margin-bottom: 10px;
+    padding-top: 5%;
     text-align: center;
   }
 
   .date {
-    font-size: 24px;
-    margin-bottom: 20px;
+    font-size: 80%;
+    margin-bottom: 1%;
     text-align: center;
   }
 
   .fact {
-    font-size: 24px;
+    font-size: 
+
+    calc(42px + (60 - 42) * (100vw - 250) / (1440 - 250));;
     text-align: center;
   }
 
-  .divider {
+  hr {
     width: 80%;
-    margin: 20px 0;
-    border: 1px solid #ccc;
+    border-width: 2px;
   }
   `;
 
@@ -74,7 +71,7 @@ class fact extends LitElement {
           <div class="container">
           <div class="title">Today's Date</div>
           <div class="date">${new Date().toDateString()}</div>
-          <div class="divider"></div>
+          <hr>
           <div class="title">Fun fact about today</div>
           <div class="fact">${this._data}</div>
           

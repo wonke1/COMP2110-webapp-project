@@ -42,6 +42,29 @@ class Comp2110Portal extends LitElement {
     header {
       font-family: "Comfortaa", cursive;
     }
+    fact-widget, currency-widget, weather-widget, ad-widget{
+      position:fixed;
+    } 
+    fact-widget{
+      left: 1%;
+      top: 17%;
+    }
+    currency-widget {
+      left: 1%;
+      bottom:17%;
+    }
+    blog-block {
+      margin-left: 15%;
+      margin-right: 15%
+    }
+    ad-widget{
+      top: 17%;
+      right: 1%;
+    }
+    weather-widget {
+      bottom: 17%;
+      right: 1%
+    }
   `;
 
   constructor() {
