@@ -7,10 +7,12 @@
 
 import { LitElement, html, css } from 'https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js';
 import { BASE_URL } from '../config.js';
+import { getUser} from '../auth.js';
 
 class BlockBlock extends LitElement {
   static properties = {
-    _posts: { state: true }
+    _posts: { state: true },
+    user: {type: String, state: true }
   }
 
   static styles = css`
@@ -69,7 +71,7 @@ class BlockBlock extends LitElement {
 
   constructor() {
     super();
-
+    this.user = getUser();
     const url = `${BASE_URL}blog`;
     fetch(url)
         .then(response => response.json())
@@ -90,7 +92,23 @@ class BlockBlock extends LitElement {
   render() {
     if (!this._posts)
       return html`Loading...`
-    
+    if (this.user){
+      return html`
+        <div class="title"> 
+          Blog Posts
+        </div>
+          ${this._posts.map(post => html`<div class="blogpost">
+            <h2>${post.title}</h2>
+            <h3>By ${post.name}</h3>
+            ${BlockBlock.formatBody(post.content)}
+          </div>`)}
+          <form id="PostBlog">
+          <label for"Content"> Create Blog Post </label>
+          <textarea id = "Content" type="text" placeholder="Enter text here..." maxlength="2000"></textarea>
+          <button id="SubmitBlog"> Submit </button>
+        </form>
+        `;
+    }
     return html`
     <div class="title"> 
       Blog Posts
@@ -100,16 +118,13 @@ class BlockBlock extends LitElement {
         <h3>By ${post.name}</h3>
         ${BlockBlock.formatBody(post.content)}
       </div>`)}
-      <form id="PostBlog">
-          <label for"Content"> Create Blog Post </label>
-          <textarea id = "Content" type="text" placeholder="Enter text here..." maxlength="2000"></textarea>
-          <button id="SubmitBlog"> Submit </button>
-      </form>
       `;
-
   }
-}
+};
 
+
+
+// import {user} from "login-widget.js";
 customElements.define('blog-block', BlockBlock);
 
 
