@@ -58,9 +58,9 @@ class CurrencyWidget extends LitElement {
   constructor() {
     super();
     this.header = 'Currency Conversion';
-    this.amount = 1;
+    this.amount = 0;
     this.fromCurrency = 'AUD';
-    this.toCurrency = 'AUD';
+    this.toCurrency = 'USD';
   }
 
   static BASE_URL = "https://api.exchangerate.host"
@@ -74,16 +74,18 @@ class CurrencyWidget extends LitElement {
           this.requestUpdate();
 
           const resultElement = this.shadowRoot.querySelector('#result');
-          resultElement.innerHTML = `${data.result} ${this.toCurrency}`;
+          resultElement.innerHTML = `${data.result !== null && data.result !== undefined ? data.result : 'Error'} ${this.toCurrency}`;
        })
      .catch(error => console.error(error));
+   
 
   }
 
   connectedCallback() {
     super.connectedCallback();
-  }
-  
+    this._CurrencyChange();
+  }  
+
   _AmountChange(e) {
     this.amount = e.target.value;
   }
