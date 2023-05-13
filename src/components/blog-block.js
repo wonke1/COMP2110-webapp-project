@@ -80,6 +80,27 @@ class BlockBlock extends LitElement {
         });
   }
 
+  SubmitPost(event) {
+
+    const title = event.target.title.value;
+    const content = event.target.content.value;
+    
+    fetch(`${BASE_URL}blog`, {
+      method: 'POST',
+      body: JSON.stringify({title, content}),
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Basic ${getUser().token}`
+      }
+    })
+        .then(response => {
+          response.json()
+        })
+        .catch(error => {
+          console.error(error);
+        });
+  }
+
   // A simple formatter that just splits text into paragraphs and 
   // wraps each in a <p> tag
   // a fancier version could use markdown and a third party markdown
@@ -102,10 +123,11 @@ class BlockBlock extends LitElement {
             <h3>By ${post.name}</h3>
             ${BlockBlock.formatBody(post.content)}
           </div>`)}
-          <form id="PostBlog">
-          <label for"Content"> Create Blog Post </label>
-          <textarea id = "Content" type="text" placeholder="Enter text here..." maxlength="2000"></textarea>
-          <button id="SubmitBlog"> Submit </button>
+        <form id="PostBlog" @submit=${this.SubmitPost}>
+          <label> Create Blog Post </label>
+          <input name="title" id="Title" type="text" placeholder="Enter Blog Title..."></input>
+          <textarea name="content" id="Content" type="text" placeholder="Enter text here..." maxlength="2000"></textarea>
+          <input id="SubmitBlog" type="submit"></input>
         </form>
         `;
     }
