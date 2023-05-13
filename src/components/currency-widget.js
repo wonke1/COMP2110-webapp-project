@@ -83,7 +83,7 @@ class CurrencyWidget extends LitElement {
           this.requestUpdate();
 
           const resultElement = this.shadowRoot.querySelector('#result');
-          resultElement.innerHTML = `${data.result !== null && data.result !== undefined ? data.result.toFixed(2) : 'Error'} ${this.toCurrency}`;
+          resultElement.innerHTML = `${data.result !== null && data.result !== undefined ? data.result : 'Error converting to'} ${this.toCurrency}`;
        })
      .catch(error => console.error(error));
    
@@ -92,7 +92,6 @@ class CurrencyWidget extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    this._CurrencyChange();
   }  
 
   _AmountChange(e) {
