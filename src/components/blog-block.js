@@ -16,12 +16,23 @@ class BlockBlock extends LitElement {
   static styles = css`
   :host {
     margin: 1em;
+    width: 80%;
   }
   .blogpost {
     text-align: left;
   }
+  .blogpost:nth-child(even) {
+    background: #3250509c;
+    border-bottom: 2px dotted gainsboro;
+    border-top: 2px dotted gainsboro;
+  }
+  .blogpost:nth-child(odd) {
+    background: gainsboro;
+    border-bottom: 2px dotted #3250509c;
+    border-top: 2px dotted #3250509c;
+  }
   .blogpost h2 {
-    background-color: pink;
+    // background-color: pink;
     text-transform: capitalize;
   }
   `;
