@@ -60,7 +60,7 @@ class CurrencyWidget extends LitElement {
     this.header = 'Currency Conversion';
     this.amount = 0;
     this.fromCurrency = 'AUD';
-    this.toCurrency = 'EUR';
+    this.toCurrency = 'AUD';
   }
 
   static BASE_URL = "https://api.exchangerate.host"
@@ -74,7 +74,7 @@ class CurrencyWidget extends LitElement {
           this.requestUpdate();
 
           const resultElement = this.shadowRoot.querySelector('#result');
-          resultElement.innerHTML = `${this.amount} ${this.fromCurrency} = ${data.result} ${this.toCurrency}`;
+          resultElement.innerHTML = `${data.result} ${this.toCurrency}`;
        })
      .catch(error => console.error(error));
 
@@ -84,20 +84,20 @@ class CurrencyWidget extends LitElement {
     super.connectedCallback();
   }
   
-  _AmountChange(event) {
-    this.amount = event.target.value;
+  _AmountChange(e) {
+    this.amount = e.target.value;
   }
 
-  _FromCurrencyChange(event) {
-    this.fromCurrency = event.target.value;
+  _FromCurrencyChange(e) {
+    this.fromCurrency = e.target.value;
   }
 
-  _ToCurrencyChange(event) {
-    this.toCurrency = event.target.value;
+  _ToCurrencyChange(e) {
+    this.toCurrency = e.target.value;
   }
 
-  _ConvertClick(event) {
-    event.preventDefault();
+  _ConvertClick(e) {
+    e.preventDefault();
     this._fetch();
   }
 
