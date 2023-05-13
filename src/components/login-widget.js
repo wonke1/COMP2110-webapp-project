@@ -56,15 +56,17 @@ class LoginWidget extends LitElement {
       }
       this.user = data;
       storeUser(data);
+      location.reload();
     }).catch(error => {
       console.error(error);
-      this.errorMessage = 'Incorrect Username & Password';
+      this.errorMessage = 'Incorrect username or password';
     });
   }
 
   logout() {
     deleteUser();
     this.user = null;
+    location.reload();
   }
 
   tryAgain() {
