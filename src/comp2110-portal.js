@@ -63,9 +63,6 @@ class Comp2110Portal extends LitElement {
       left: 1%;
       bottom:17%;
     }
-    blog-block {
-      margin-left: 290px;
-    }
     ad-widget{
       top: 17%;
       right: 1%;

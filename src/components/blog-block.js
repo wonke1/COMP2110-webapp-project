@@ -18,11 +18,12 @@ class BlockBlock extends LitElement {
   @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
 
   :host {
-    width: 1300px;
-    margin: auto;
+    max-width: 100vw;
     font-family: "Libre Baskerville"
   }
   .blogpost {
+    margin-left: 15vw;
+    margin-right: 14.4vw;
     text-align: left;
   }
   .blogpost:nth-child(even) {
@@ -48,7 +49,7 @@ class BlockBlock extends LitElement {
     text-decoration: overline;
   }
   .blogpost p {
-    margin: 1% 0 2% 2%;
+    margin: 2% 0 2% 2%;
   }
   .blogpost p, .blogpost h2, .blogpost h3{
     margin-right: 1%;
