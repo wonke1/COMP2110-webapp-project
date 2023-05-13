@@ -21,7 +21,7 @@ class CurrencyWidget extends LitElement {
       font-size: 100%;
       font-weight: bold;
       padding-top: 5%;
-      padding-bottom: 10%;
+      padding-bottom: 5%;
     }
 
     .amount {
@@ -52,13 +52,15 @@ class CurrencyWidget extends LitElement {
     }
 
     hr {
+      margin-top: 0;
+      padding-top: 0;
       width: 80%;
       height: 2px;
       border-radius: 2px;
     }
 
     #result {
-      margin-top: 5%;
+      margin-top: 8%;
     }
   `;
 
