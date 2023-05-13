@@ -54,6 +54,15 @@ class BlockBlock extends LitElement {
     margin-right: 1%;
     word-wrap: break-word;
   }
+
+  #Content {
+    font-size: 90%;
+    width: 1300px;
+    height: 200px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    text-align: left;
+  }
   `;
 
   constructor() {
@@ -81,12 +90,21 @@ class BlockBlock extends LitElement {
       return html`Loading...`
     
     return html`
+    <div class="title"> 
+      Blog Posts
+    </div>
       ${this._posts.map(post => html`<div class="blogpost">
         <h2>${post.title}</h2>
         <h3>By ${post.name}</h3>
         ${BlockBlock.formatBody(post.content)}
       </div>`)}
+      <form id="PostBlog">
+          <label for"Content"> Create Blog Post </label>
+          <textarea id = "Content" type="text" placeholder="Enter text here..." maxlength="2000"></textarea>
+          <button id="SubmitBlog"> Submit </button>
+      </form>
       `;
+
   }
 }
 
