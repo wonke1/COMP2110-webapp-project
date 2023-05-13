@@ -58,15 +58,62 @@ class BlockBlock extends LitElement {
     margin-right: 1%;
     word-wrap: break-word;
   }
-
-  #Content {
+  #Content, #Title{
+    width:1320px;
+    margin-top: .5%;
+    width:1320px;
     font-size: 90%;
-    width: 1300px;
-    height: 200px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
-    text-align: left;
+
   }
+  #Content {
+    height: 80px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    cursor: auto;
+    text-align: left;
+    border-radius: 3px;
+  }
+  #PostBlog {
+    text-align: center;
+    margin-top: .5%;
+    font-family: "Julius Sans One";
+    font-weight: bold;
+  }
+  #Title{
+
+  }
+
+  input[type='submit'] {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    font-family: "Julius Sans One";
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1;
+    border-radius: 500px;
+    transition-property: background-color,border-color,color,box-shadow,filter;
+    transition-duration: .3s;
+    border: 1px solid transparent;
+    letter-spacing: 2px;
+    min-width: 160px;
+    text-transform: uppercase;
+    white-space: normal;
+    font-weight: 700;
+    text-align: center;
+    padding: 16px 14px 18px;
+    color: #616467;
+    box-shadow: inset 0 0 0 2px #616467;
+    background-color: transparent;
+    height: 48px;
+    width: 1320px;
+  }
+  input[type='submit']:hover{
+      color: #fff;
+      background-color: #616467;
+  }
+  }
+
+  
   `;
 
   constructor() {
@@ -124,9 +171,9 @@ class BlockBlock extends LitElement {
             ${BlockBlock.formatBody(post.content)}
           </div>`)}
         <form id="PostBlog" @submit=${this.SubmitPost}>
-          <label> Create Blog Post </label>
-          <input name="title" id="Title" type="text" placeholder="Enter Blog Title..."></input>
-          <textarea name="content" id="Content" type="text" placeholder="Enter text here..." maxlength="2000"></textarea>
+          <label> Add to the Blog! </label> <br>
+          <input name="title" id="Title" type="text" placeholder="Subject"></input>
+          <textarea name="content" id="Content" type="text" placeholder="Content" maxlength="2000"></textarea>
           <input id="SubmitBlog" type="submit"></input>
         </form>
         `;

@@ -24,13 +24,16 @@ class Comp2110Portal extends LitElement {
       max-width: 960px;
       margin: 0 auto;
       text-align: center;
-      background-color: lightgoldenrodyellow;
+      background-color: gainsboro;
     }
 
     main {
       display: flex;
+      background-color: gainsboro;
     }
-
+    header{
+      background-color: gainsboro;
+    }
     .app-footer {
       font-size: calc(12px + 0.5vmin);
       align-items: center;

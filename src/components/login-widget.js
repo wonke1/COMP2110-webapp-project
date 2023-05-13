@@ -10,7 +10,11 @@ class LoginWidget extends LitElement {
   }
 
   static styles = css`
+  @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+
     :host {
+      font-family: 'Julius Sans One'
         display: block;
     }
     input {
@@ -86,8 +90,8 @@ class LoginWidget extends LitElement {
 
     return html`
       <form id="Login" @submit=${this.submitForm}>
-          <input name="username" placeholder= 'Username'>
-          <input type="password" name="password" placeholder='Password'>
+          <input name="username" placeholder= 'Username' required="">
+          <input type="password" name="password" placeholder='Password' required="">
           <input type='submit' value='Login'>
       </form>`;
     
