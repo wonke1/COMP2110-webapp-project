@@ -12,24 +12,22 @@ class CurrencyWidget extends LitElement {
         width: 250px;
         height: 250px;
         background-color: #e2cefd;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     }
 
     #convertForm {
-      padding:1.5%;
+      padding-top:5%;
     }
 
     .title {
-      margin-top: 30px;
-      margin: 20px;
-      font-size: 15px;
-      font-weigth: 900;
+      font-size: 100%;
+      font-weight: bold;
+      padding-top: 5%;
+      padding-bottom: 10%;
     }
 
     .amount {
       font-size: 20px;
-      margin: 10px;
+      padding-top: 10%;
     }
 
     .CurrencySelector {
@@ -39,19 +37,23 @@ class CurrencyWidget extends LitElement {
     }
 
     #box1 {
-      cursor: crosshair;
+      cursor: pointer;
       width: 55px;
     }
 
     #box2 {
-      cursor: crosshair;
+      cursor: pointer;
       width: 55px;
     }
 
     #Button {
       width: 200px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-      cursor: crosshair;
+      cursor: pointer;
+    }
+    hr {
+      width: 80%;
+      height: 2px;
     }
   `;
 
@@ -107,10 +109,9 @@ class CurrencyWidget extends LitElement {
     return html`
        <div class="currency-converter">
         <div class="title">
-            <h1> 
                 Currency Converter
-            </h1>
         </div>
+        <hr>
         <form id="convertForm">
             <div class="amount">
                 <label>Amount</label>

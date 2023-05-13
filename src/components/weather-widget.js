@@ -37,8 +37,6 @@ class WeatherWidget extends LitElement {
         width: 250px;
         height: 250px;
         background-color: azure;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     }
     button {
         cursor: pointer;

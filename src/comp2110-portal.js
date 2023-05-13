@@ -44,6 +44,9 @@ class Comp2110Portal extends LitElement {
     }
     fact-widget, currency-widget, weather-widget, ad-widget{
       position:fixed;
+      border: .1px solid black;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     } 
     fact-widget{
       left: 1%;
@@ -55,7 +58,7 @@ class Comp2110Portal extends LitElement {
     }
     blog-block {
       margin-left: 15%;
-      margin-right: 15%
+      margin-right: 14.2%;
     }
     ad-widget{
       top: 17%;
