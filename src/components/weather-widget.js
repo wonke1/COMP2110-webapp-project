@@ -54,6 +54,7 @@ class WeatherWidget extends LitElement {
         text-align: center;
     }
     #weatherData {
+        text-decoration: overline;
         font-size: 120%;
     }
     #find-me:hover {
@@ -106,7 +107,7 @@ class WeatherWidget extends LitElement {
             <p id='weatherInfo'>Timezone <br><span id='weatherData'>${this.timezone}</span><br>
             Min. Tempurature <br><span id='weatherData'>${this.minTemp}${this.tempUnit}</span><br>
             Max. Tempurature <br><span id='weatherData'>${this.maxTemp}${this.tempUnit}</span><br>
-            Sum of Precipitation <br><span id='weatherData'>${this.precipSum}${this.precipUnit}</span></p>
+            Precipitation Sum <br><span id='weatherData'>${this.precipSum}${this.precipUnit}</span></p>
             <button id="find-me">Set to my location</button> <br>
             <p id="status"></p>
             `;  
