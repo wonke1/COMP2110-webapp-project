@@ -6,6 +6,7 @@ class LoginWidget extends LitElement {
   static properties = {
     loginUrl: { type: String },
     user: {type: String, state: true }
+    ,errorMessage: {type: String, state: true }
   }
 
   static styles = css`
@@ -45,13 +46,20 @@ class LoginWidget extends LitElement {
     const username = event.target.username.value;
     const password = event.target.password.value;
     fetch(this.loginUrl, {
-        method: 'post',
-        body: JSON.stringify({username, password}),
-        headers: {'Content-Type': 'application/json'}
-    }).then(result => result.json()).then(response => {
-        this.user = response;
-        storeUser(response);
-    })
+      method: 'post',
+      body: JSON.stringify({username, password}),
+      headers: {'Content-Type': 'application/json'}
+    }).then(response => response.json())
+    .then(data => {
+      if (data.error) {
+        throw new Error(data.error);
+      }
+      this.user = data;
+      storeUser(data);
+    }).catch(error => {
+      console.error(error);
+      this.errorMessage = 'Incorrect Username & Password';
+    });
   }
 
   logout() {
@@ -59,12 +67,23 @@ class LoginWidget extends LitElement {
     this.user = null;
   }
 
+  tryAgain() {
+    this.errorMessage = null;
+    const form = this.querySelector('#Login');
+    form.submit();
+  }
+
   render() {
     if (this.user) {
         return html`<p>Logged in as ${this.user.name}</p><button @click=${this.logout}>Logout</button>`
     } 
+
+    if (this.errorMessage) {
+     return html`<p>${this.errorMessage}</p><button @click=${this.tryAgain}>Try Again</button>`
+    }
+
     return html`
-      <form @submit=${this.submitForm}>
+      <form id="Login" @submit=${this.submitForm}>
           <input name="username" placeholder= 'Username'>
           <input type="password" name="password" placeholder='Password'>
           <input type='submit' value='Login'>
