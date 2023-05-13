@@ -15,7 +15,6 @@ class CurrencyWidget extends LitElement {
     }
 
     #convertForm {
-      padding-top:5%;
     }
 
     .title {
@@ -26,14 +25,14 @@ class CurrencyWidget extends LitElement {
     }
 
     .amount {
-      font-size: 20px;
+      font-size: 90%;
       padding-top: 10%;
     }
 
     .CurrencySelector {
       align-items: center;
-      font-size: 20px;
-      margin: 10px;
+      font-size: 90%;
+      margin: 5%;
     }
 
     #box1 {
@@ -51,9 +50,15 @@ class CurrencyWidget extends LitElement {
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
       cursor: pointer;
     }
+
     hr {
       width: 80%;
       height: 2px;
+      border-radius: 2px;
+    }
+
+    #result {
+      margin-top: 5%;
     }
   `;
 
@@ -76,7 +81,7 @@ class CurrencyWidget extends LitElement {
           this.requestUpdate();
 
           const resultElement = this.shadowRoot.querySelector('#result');
-          resultElement.innerHTML = `${data.result !== null && data.result !== undefined ? data.result : 'Error'} ${this.toCurrency}`;
+          resultElement.innerHTML = `${data.result !== null && data.result !== undefined ? data.result.toFixed(2) : 'Error'} ${this.toCurrency}`;
        })
      .catch(error => console.error(error));
    

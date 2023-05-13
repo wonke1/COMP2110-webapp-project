@@ -67,6 +67,11 @@ class WeatherWidget extends LitElement {
         font-weight: bold;
         padding-top: 5%;
     }
+    hr {
+        width: 80%;
+        height: 2px; 
+        border-radius: 2px;
+    }
     `;
 
     constructor() {
@@ -106,13 +111,13 @@ class WeatherWidget extends LitElement {
             return html `Loading Weather Data...`;
         console.log(this.timezone, this.maxTemp, this.minTemp, this.precipSum, this.sunrise, this.sunset);
         return html `
-            <div class='title'>Todays' Weather</div>
+            <div class='title'>Todays' Weather</div><hr>
             <p id='weatherInfo'>Timezone <br><span id='weatherData'>${this.timezone}</span><br>
             Min. Tempurature <br><span id='weatherData'>${this.minTemp}${this.tempUnit}</span><br>
             Max. Tempurature <br><span id='weatherData'>${this.maxTemp}${this.tempUnit}</span><br>
             Precipitation Sum <br><span id='weatherData'>${this.precipSum}${this.precipUnit}</span></p>
-            <button id="find-me">Set to my location</button> <br>
             <p id="status"></p>
+            <button id="find-me">Set to my location</button> <br>
             `;  
     };
 
