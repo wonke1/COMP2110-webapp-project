@@ -38,6 +38,7 @@ class fact extends LitElement {
   hr {
     width: 80%;
     border-width: 2px;
+    border-radius: 2px;
   }
   `;
 
