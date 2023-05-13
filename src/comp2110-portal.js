@@ -14,6 +14,9 @@ class Comp2110Portal extends LitElement {
   }
 
   static styles = css`
+    @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
     :host {
       min-height: 100vh;   
       font-size: 14pt;
@@ -36,11 +39,14 @@ class Comp2110Portal extends LitElement {
     .app-footer a {
       margin-left: 5px;
     }
+    header {
+      font-family: "Comfortaa", cursive;
+    }
   `;
 
   constructor() {
     super();
-    this.header = 'COMP2110 Portal';
+    this.header = 'COMP2110 PORTAL';
   }
 
   render() {
@@ -51,13 +57,13 @@ class Comp2110Portal extends LitElement {
       </header>
 
       <main>
-        <widget-column header="Left">
+        <widget-column header="">
           <fact-widget header="Fun Fact of the Day"></fact-widget>
           <currency-widget></currency-widget>
-          <widget-block header="Third Widget"></widget-block>
+          <!-- <widget-block header="Third Widget"></widget-block> -->
         </widget-column>
         <blog-block></blog-block>       
-        <widget-column header="Right">
+        <widget-column header="">
           <ad-widget></ad-widget>
           <weather-widget header="Todays Weather"></widget-block>
           <widget-block header="Fifth Widget"></widget-block>

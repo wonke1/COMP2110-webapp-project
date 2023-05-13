@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
 
 *::after, *::before, * {
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
 }
   
 html,body {
@@ -16,7 +16,6 @@ html,body {
 html {
   color: #222;
   font-size: 1em;
-  font-family: 'Libre Baskerville', sans-serif;
 }
   
 body {

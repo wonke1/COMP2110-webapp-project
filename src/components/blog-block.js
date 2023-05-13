@@ -14,9 +14,13 @@ class BlockBlock extends LitElement {
   }
 
   static styles = css`
+  @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+
   :host {
     margin: 1em;
     width: 80%;
+    font-family: "Libre Baskerville"
   }
   .blogpost {
     text-align: left;
@@ -32,8 +36,23 @@ class BlockBlock extends LitElement {
     border-top: 2px dotted #3250509c;
   }
   .blogpost h2 {
-    // background-color: pink;
+    padding-left: 3%;
     text-transform: capitalize;
+    margin-bottom: 1%;
+    font-family: "Julius Sans One"
+  }
+  .blogpost h3 {
+    margin: unset;
+    padding: 0 0 0 5%;
+    font-size: 80%;
+    text-decoration: overline;
+  }
+  .blogpost p {
+    margin: 1% 0 2% 2%;
+  }
+  .blogpost p, .blogpost h2, .blogpost h3{
+    margin-right: 1%;
+    word-wrap: break-word;
   }
   `;
 

@@ -11,7 +11,28 @@ class LoginWidget extends LitElement {
   static styles = css`
     :host {
         display: block;
-    }`;
+    }
+    input {
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 2px solid #3250509c;
+      border-radius: 4px;
+      background-color: rgba(220, 220, 220, 0.1);
+    }
+    input:hover {
+      background-color: gainsboro;
+    }
+    input:active {
+      
+    }
+    input[type="submit"]{
+      border: 1px solid black;
+    }
+    input[type="submit"]:hover {
+      background-color: unset;
+      cursor: pointer;
+    }
+    `;
 
   constructor() {
     super();
@@ -44,8 +65,8 @@ class LoginWidget extends LitElement {
     } 
     return html`
       <form @submit=${this.submitForm}>
-          Username: <input name="username">
-          Password: <input type="password" name="password">
+          <input name="username" placeholder= 'Username'>
+          <input type="password" name="password" placeholder='Password'>
           <input type='submit' value='Login'>
       </form>`;
     

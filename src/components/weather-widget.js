@@ -58,10 +58,10 @@ class WeatherWidget extends LitElement {
         font-size: 120%;
     }
     #find-me:hover {
-        filter: invert(100%);
+        filter: invert(20%);
     }
     #find-me:active {
-        
+        filter: invert(40%);
     }
     `;
 
