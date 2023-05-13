@@ -58,7 +58,7 @@ class CurrencyWidget extends LitElement {
   constructor() {
     super();
     this.header = 'Currency Conversion';
-    this.amount = 0;
+    this.amount = 1;
     this.fromCurrency = 'AUD';
     this.toCurrency = 'AUD';
   }
