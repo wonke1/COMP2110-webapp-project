@@ -21,12 +21,7 @@ class AdWidget extends LitElement {
       padding-right: 10px;
       z-index: 0;
       color: white;
-    }
-    img {
-      border: .1px solid black;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    }
+    }   
   `;
 
   constructor() {

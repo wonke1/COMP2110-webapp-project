@@ -18,7 +18,7 @@ class BlockBlock extends LitElement {
   @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
 
   :host {
-    width: 100%;
+    width: 1300px;
     margin: auto;
     font-family: "Libre Baskerville"
   }

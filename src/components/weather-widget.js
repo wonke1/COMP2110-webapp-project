@@ -32,6 +32,9 @@ class WeatherWidget extends LitElement {
     }
 
     static styles = css `
+    @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+
     :host {
         display: block;
         width: 250px;
@@ -59,13 +62,14 @@ class WeatherWidget extends LitElement {
     #find-me:active {
         filter: invert(40%);
     }
-    #find-me {
-
-    }
+    p {
+        font-family: 'Libre Baskerville';
+      }         
     .title {
         font-size: 100%;
         font-weight: bold;
         padding-top: 5%;
+        font-family: 'Julius Sans One' !important;
     }
     hr {
         width: 80%;

@@ -7,10 +7,12 @@ class fact extends LitElement {
   }
 
   static styles = css`
+  @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+
   .container {
     display: block;
-    width: 250px;
-    height: auto;
+    height: auto ; 
     min-height: 250px;
     background-color: #cee1fd;
   }
@@ -20,8 +22,12 @@ class fact extends LitElement {
     font-weight: bold;
     padding-top: 5%;
     text-align: center;
+    font-family: 'Julius Sans One' !important;
   }
 
+  div {
+    font-family: 'Libre Baskerville';
+  }
   .date {
     font-size: 80%;
     margin-bottom: 1%;
@@ -29,9 +35,7 @@ class fact extends LitElement {
   }
 
   .fact {
-    font-size: 
-
-    calc(42px + (60 - 42) * (100vw - 250) / (1440 - 250));;
+    font-size: 80%;
     text-align: center;
   }
 

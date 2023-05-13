@@ -48,7 +48,13 @@ class Comp2110Portal extends LitElement {
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
       overflow: hidden;
+      width: 20vw;
+      max-width: 250px;
     } 
+    currency-widget, weather-widget, ad-widget{
+      height:20vw;
+      max-height: 250px;
+    }
     fact-widget{
       left: 1%;
       top: 17%;
@@ -58,8 +64,7 @@ class Comp2110Portal extends LitElement {
       bottom:17%;
     }
     blog-block {
-      margin-left: 15%;
-      margin-right: 14.2%;
+      margin-left: 290px;
     }
     ad-widget{
       top: 17%;

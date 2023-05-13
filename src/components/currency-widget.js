@@ -7,10 +7,10 @@ class CurrencyWidget extends LitElement {
   }
 
   static styles = css`
+  @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
     :host {
         display: block;
-        width: 250px;
-        height: 250px;
         background-color: #e2cefd;
     }
 
@@ -22,6 +22,11 @@ class CurrencyWidget extends LitElement {
       font-weight: bold;
       padding-top: 5%;
       padding-bottom: 5%;
+      font-family: 'Julius Sans One' !important;
+    }
+
+    div {
+      font-family: 'Libre Baskerville';
     }
 
     .amount {
