@@ -46,7 +46,7 @@ class WeatherWidget extends LitElement {
     }
     #status {
         font-size: 10px;
-        margin: -4%;
+        margin: -5%;
     }
     #weatherInfo {
         font-size: 80%;
@@ -55,12 +55,6 @@ class WeatherWidget extends LitElement {
     #weatherData {
         text-decoration: overline;
         font-size: 120%;
-    }
-    #find-me:hover {
-        filter: invert(20%);
-    }
-    #find-me:active {
-        filter: invert(40%);
     }
     p {
         font-family: 'Libre Baskerville';
@@ -76,6 +70,27 @@ class WeatherWidget extends LitElement {
         height: 2px; 
         border-radius: 2px;
     }
+
+    button {
+      align-items: center;
+      padding: 6px 14px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+      border-radius: 6px;
+      color: #3D3D3D;
+      background: #fff;
+      border: none;
+      box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1);
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+    }
+    button:focus {
+      box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+      outline: 0;
+    }
+    button:hover {
+        box-shadow: 0px 0px 0px 3.5px rgba(58, 108, 217, 0.25)
+      } 
     `;
 
     constructor() {
@@ -107,7 +122,6 @@ class WeatherWidget extends LitElement {
                 console.log("1. " + this.timezone, this.maxTemp, this.minTemp, this.precipSum, this.sunrise, this.sunset);
             })
             .catch(error => console.error(error));
-        
     };
 
     render() {
@@ -134,7 +148,7 @@ class WeatherWidget extends LitElement {
                 const latitude = position.coords.latitude.toFixed(2);
                 const longitude = position.coords.longitude.toFixed(2);
                 console.log(latitude, longitude);
-                statusBtn.innerHTML = `Current Location: <br>Latitude: ${latitude}, Longitude: ${longitude}`;
+                // statusBtn.innerHTML = `Current Location: <br>Latitude: ${latitude}, Longitude: ${longitude}`;
                 this.latitude = latitude;
                 this.longitude = longitude;
                 const apiURL = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=temperature_2m_max,temperature_2m_min,sunrise,sunset,precipitation_sum&forecast_days=1&timezone=auto`;
@@ -151,8 +165,8 @@ class WeatherWidget extends LitElement {
                     this.tempUnit = data['daily_units']['temperature_2m_max'];
                     this.precipUnit = data['daily_units']['precipitation_sum'];
                     console.log("2. " + this.timezone, this.maxTemp, this.minTemp, this.precipSum, this.sunrise, this.sunset);
+                    statusBtn.style.display = 'none';
                     this.requestUpdate();
-                    findMeBtn.style.display = 'none';
                   })
                   .catch(error => console.error(error));
             }
@@ -165,6 +179,7 @@ class WeatherWidget extends LitElement {
                 statusBtn.textContent = "Locating…";
                 navigator.geolocation.getCurrentPosition(success, error);
             }
+
         };
 
         const findMeBtn = this.shadowRoot.querySelector('#find-me');
@@ -172,6 +187,9 @@ class WeatherWidget extends LitElement {
 
         this.geoFindMe = geoFindMe.bind(this);
         findMeBtn.addEventListener('click', this.geoFindMe);
+        findMeBtn.addEventListener('click', () => {
+            findMeBtn.style.display='none';
+        });
     };
 }
 

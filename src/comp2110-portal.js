@@ -79,6 +79,10 @@ class Comp2110Portal extends LitElement {
       bottom: 17%;
       right: 1%
     }
+    .app-footer {
+      font-size: 50%;
+      
+    }
   `;
 
   constructor() {

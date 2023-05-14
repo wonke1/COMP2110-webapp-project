@@ -50,11 +50,6 @@ class CurrencyWidget extends LitElement {
       width: 55px;
     }
 
-    #Button {
-      width: 200px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-      cursor: pointer;
-    }
 
     hr {
       margin-top: 0;
@@ -65,7 +60,31 @@ class CurrencyWidget extends LitElement {
     }
 
     #result {
-      margin-top: 8%;
+      margin-top: 4.5%;
+    }
+
+    button {
+      align-items: center;
+      padding: 6px 14px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+      border-radius: 6px;
+      color: #3D3D3D;
+      background: #fff;
+      border: none;
+      box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1);
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      width: 200px;
+    }
+
+    button:hover {
+      box-shadow: 0px 0px 0px 3.5px rgba(58, 108, 217, 0.25)
+    } 
+
+    button:focus {
+      box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+      outline: 0;
     }
   `;
 
