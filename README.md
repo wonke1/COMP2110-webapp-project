@@ -122,3 +122,6 @@ changing the state of existing tasks (marking them as done).
 
 ### `<holiday-widget>`
 * The holiday-widget allows for the user to pick a country list which was got through a GET request acquiring the list of avaliable countries, the list is used to pull the neccesary holidays which are used to display all holiday upcoming from the current date at which the country was chosen.
+
+### `<weather-widget>`
+* The weather-widget shows the predicted weather for the day in New York by default. the forecast includes; timezone, minimum and maximum temperatures, the sunrise and sunset times and the predicted precipitation sum. The forecast was obtained through a GET request to open meteo's API. Along with the weather forecast a geolocation API has been implemented so that if a user wishes for a forecast at their location, if they press a button, another GET request will be sent, changing the preset co-ordinates to the detected user co-ordinates. The new data will then replace the data on the default location (New York).
