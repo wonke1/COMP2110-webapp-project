@@ -17,6 +17,8 @@ class HolidayWidget extends LitElement {
   }
 
   static styles = css`
+  @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
 
     :host {
         display: block;
@@ -26,6 +28,29 @@ class HolidayWidget extends LitElement {
         height: auto ; 
         min-height: 250px;
         background-color: #cee1fd;
+    }
+
+    hr {
+      width: 80%;
+      border-width: 2px;
+      border-radius: 2px;
+    }
+
+    .title {
+      font-size: 100%;
+      font-weight: bold;
+      padding-top: 5%;
+      text-align: center;
+      font-family: 'Julius Sans One' !important;
+    }
+    label {
+      font-family: 'Julius Sans One' !important;
+      text-decoration: underline;
+    }
+    #UpcomingDates {
+      font-family: 'Libre Baskerville';
+      font-size: 80%;
+      text-align: left;
     }
   `;
   
@@ -90,9 +115,9 @@ class HolidayWidget extends LitElement {
   //Renders the html allowing for the holidays to be displayed
   render() {
     return html`
-        <h3>${this.header}</h3>
+        <div class='title'>UPCOMING HOLIDAYS</div> <hr>
         <form id="Country"> 
-          <label> Country: </label>
+          <label> Country </label>
           <select id="SelectCountry" @change="${this._ToCountry}">
           </select>
         </form>

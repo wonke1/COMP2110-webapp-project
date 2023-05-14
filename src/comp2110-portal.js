@@ -55,13 +55,16 @@ class Comp2110Portal extends LitElement {
       border: .1px solid black;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-      overflow: hidden;
       width: 20vw;
       max-width: 250px;
-    } 
-    currency-widget, weather-widget, ad-widget, holiday-widget{
       height:20vw;
       max-height: 250px;
+    } 
+    fact-widget, currency-widget, weather-widget, ad-widget{
+      overflow: hidden;
+    }
+    holiday-widget, fact-widget{
+      overflow-y: auto;
     }
     fact-widget{
       left: 1%;

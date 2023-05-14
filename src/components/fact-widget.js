@@ -10,10 +10,8 @@ class fact extends LitElement {
   @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
 
-  .container {
+  :host {
     display: block;
-    height: auto ; 
-    min-height: 250px;
     background-color: #cee1fd;
   }
 
