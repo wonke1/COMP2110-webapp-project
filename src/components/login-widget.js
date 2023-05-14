@@ -25,6 +25,7 @@ class LoginWidget extends LitElement {
       background-color: rgba(220, 220, 220, 1);
       outline: none;
       margin-bottom: 5px;
+      float: center;
     }
     input:hover {
       background-color: gainsboro;
@@ -62,15 +63,23 @@ class LoginWidget extends LitElement {
       float: center;
     }
     .login {
-      margin-top: 10px;
+      margin: 15px auto auto auto;
     }
     .notice {
-      float: left;
+      font-size: 40px;
+      float: center;
       font-family: 'Julius Sans One'
     }
     label {
-      text-shadow: -.5px .5px 0 gainsboro, .5px .5px 0 gainsboro, .5px -.5px 0 gainsboro, -.5px -.5px 0 gainsboro;
+      text-shadow: -1px 1px 0 gainsboro, 1px 1px 0 gainsboro, 1px -1px 0 gainsboro, -1px -1px 0 gainsboro;
       color: #325050;
+    }
+    .loggedIn {
+      font-size: 25px;
+    }
+    .username, .password {
+      display: block;
+      margin: auto auto 5px auto;
     }
     `;
 

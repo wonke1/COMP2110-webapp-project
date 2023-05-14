@@ -100,8 +100,8 @@ class Comp2110Portal extends LitElement {
     login-widget {
       width: 10vw;
       position:absolute;
-      right: 1%;
-      top: 0%;
+      right: 3%;
+      top: 2%;
     }
   `;
 
