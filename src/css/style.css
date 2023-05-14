@@ -17,12 +17,11 @@ html {
   color: #222;
   font-size: 1em;
 }
-  
+
 body {
   background-color: gainsboro;
   margin: 0 auto;
   color: #325050;
-  color: rgb(243, 255, 135);
   overflow-x: hidden;
 }
   

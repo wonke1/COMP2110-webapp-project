@@ -141,7 +141,6 @@ class WeatherWidget extends LitElement {
 
     updated() {
         const geoFindMe = () => {
-            const findMeBtn = this.shadowRoot.querySelector('#find-me');
             const statusBtn = this.shadowRoot.querySelector('#status');
             let status = statusBtn
             const success = (position) => {   

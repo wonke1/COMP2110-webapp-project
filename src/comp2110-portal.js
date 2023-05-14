@@ -33,7 +33,13 @@ class Comp2110Portal extends LitElement {
       background-color: gainsboro;
     }
     header{
-      background-color: gainsboro;
+      font-size: 170%;
+      color: gainsboro;
+      background-color: black;
+      margin-top: 0;
+      background-image: url('./src/css/banner/header.jpg');
+      background-repeat: repeat;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
     }
     .app-footer {
       font-size: calc(12px + 0.5vmin);
@@ -81,7 +87,12 @@ class Comp2110Portal extends LitElement {
     }
     .app-footer {
       font-size: 50%;
-      
+    }
+    h1 {
+      margin-top: 0;
+      padding-top: 5%;
+      font-family: 'Julius Sans One', cursive;
+      font-weight: bolder;
     }
   `;
 
@@ -92,7 +103,7 @@ class Comp2110Portal extends LitElement {
 
   render() {
     return html`
-      <header>
+      <header id='head'>
         <h1>${this.header}</h1>
         <login-widget></login-widget>
       </header>
