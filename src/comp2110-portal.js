@@ -99,6 +99,18 @@ class Comp2110Portal extends LitElement {
       padding: 10px 0 10px 0;
       text-decoration: overline underline;
     }
+    #column1 {
+      margin-left: 1%;
+    }
+    #column2 {
+      margin-right: 1%
+    }
+    blog-block {
+      display:block;
+      margin: 1% auto 0 auto;
+      width: ${window.innerWidth * 0.68}px;
+      text-align: left;
+    }
   `;
 
   constructor() {
@@ -114,13 +126,13 @@ class Comp2110Portal extends LitElement {
       </header>
 
       <main>
-        <widget-column header="">
+        <widget-column id='column1' header="">
           <fact-widget header="Fun Fact of the Day"></fact-widget>
           <currency-widget></currency-widget>
           <holiday-widget header="Upcoming Holidays"></widget-block>
         </widget-column>
         <blog-block></blog-block>       
-        <widget-column header="">
+        <widget-column id='column2' header="">
           <ad-widget></ad-widget>
           <weather-widget header="Todays Weather"></widget-block>
           <widget-block header="Fifth Widget"></widget-block>

@@ -103,7 +103,7 @@ class HolidayWidget extends LitElement {
         const resultElement = this.shadowRoot.querySelector('#PublicHolidays');
         var Index;
         for (Index = lastIndex; Index < data.length; Index++) {
-          resultElement.innerHTML += data[Index].name + ':' + data[Index].date + "\n";
+          resultElement.innerHTML += data[Index].name + '<br>' + data[Index].date + "<br><br>";
         }
         
         this.requestUpdate();
@@ -120,7 +120,7 @@ class HolidayWidget extends LitElement {
   //Renders the html allowing for the holidays to be displayed
   render() {
     return html`
-        <h3>${this.header}</h3>
+        <div class='title'>UPCOMING HOLIDAYS</div> <hr>
         <form id="Country"> 
           <label> Country: </label>
           <select id="SelectCountry" @change="${this._ToCountry}">

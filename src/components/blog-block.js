@@ -26,8 +26,6 @@ class BlockBlock extends LitElement {
     font-family: "Libre Baskerville"
   }
   .blogpost {
-    width: 1320px;
-    text-align: left;
   }
   .blogpost:nth-child(even) {
     background: #3250509c;
@@ -86,7 +84,7 @@ class BlockBlock extends LitElement {
     text-align: left;
   }
   #PostBlog {
-    padding-top: 20px;
+    padding-top: 40px;
     text-align: left;
     margin-top: .5%;
     font-family: "Julius Sans One";
@@ -137,6 +135,7 @@ class BlockBlock extends LitElement {
   }
   #hr2 {
     background-color: unset;
+    margin-bottom: 20px;
   }
   `;
 
@@ -189,7 +188,9 @@ class BlockBlock extends LitElement {
     return paragraphs.map(paragraph => html`<p>${paragraph}</p>`)
   }
   
-  
+  updated() {
+
+  }
   render() {
 
     //Checks if posts can be received
