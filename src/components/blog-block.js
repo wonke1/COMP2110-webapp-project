@@ -71,7 +71,7 @@ class BlockBlock extends LitElement {
     background-color: gainsboro;
     outline: none;
     margin-bottom: 5px;
-    font-family: 'Comfortaa';
+    
   }
   #Content:hover, #Title:hover {
     box-shadow: 0px 0px 0px 3.5px rgba(58, 108, 217, 0.25)
@@ -86,7 +86,8 @@ class BlockBlock extends LitElement {
     text-align: left;
   }
   #PostBlog {
-    text-align: center;
+    padding-top: 20px;
+    text-align: left;
     margin-top: .5%;
     font-family: "Julius Sans One";
     font-weight: bold;
@@ -121,9 +122,19 @@ class BlockBlock extends LitElement {
       color: #fff;
       background-color: #616467;
   }
+  .title {
+    font-size: 50px;
+    font-family: 'Comfortaa';
+    color: #325050;
   }
-
-  
+  hr {
+    height: 5px;
+    border-radius: 30px;
+    background-color: #3250509c;
+  }
+  .post {
+    padding-left: 50px;
+  }
   `;
 
   constructor() {
@@ -174,16 +185,16 @@ class BlockBlock extends LitElement {
       return html`
         <div class="title"> 
           Blog Posts
-        </div>
+        </div><hr>
           ${this._posts.map(post => html`<div class="blogpost">
             <h2>${post.title}</h2>
             <h3>By ${post.name}</h3>
             ${BlockBlock.formatBody(post.content)}
           </div>`)}
         <form id="PostBlog" @submit=${this.SubmitPost}>
-          <label> Add to the Blog! </label> <br>
-          <input name="title" id="Title" type="text" placeholder="Subject"></input>
-          <textarea name="content" id="Content" type="text" placeholder="Content" maxlength="2000"></textarea>
+          <label class='post'> Add to the Blog! </label> <br>
+          <input name="title" id="Title" type="text" placeholder="Subject" required=""></input>
+          <textarea name="content" id="Content" type="text" placeholder="Content"></textarea>
           <input id="SubmitBlog" type="submit"></input>
         </form>
         `;
