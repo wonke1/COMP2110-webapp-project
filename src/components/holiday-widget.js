@@ -51,6 +51,8 @@ class HolidayWidget extends LitElement {
       font-family: 'Libre Baskerville';
       font-size: 80%;
       text-align: left;
+      padding-left: 5px;
+      padding-right: 5px;
     }
   `;
   

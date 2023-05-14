@@ -21,8 +21,8 @@ class BlockBlock extends LitElement {
   @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
   :host {
-    margin-left: 300px;
-    margin-right: 300px;
+    margin-left: 2%;
+    margin-right: 2%;
     font-family: "Libre Baskerville"
   }
   .blogpost {
@@ -135,6 +135,9 @@ class BlockBlock extends LitElement {
   .post {
     padding-left: 50px;
   }
+  #hr2 {
+    background-color: unset;
+  }
   `;
 
 
@@ -204,7 +207,7 @@ class BlockBlock extends LitElement {
             <h3>By ${post.name}</h3>
             ${BlockBlock.formatBody(post.content)}
           </div>`)}
-        <form id="PostBlog" @submit=${this.SubmitPost}>
+        <form id="PostBlog" @submit=${this.SubmitPost}> <hr id='hr2'>
           <label class='post'> Add to the Blog! </label> <br>
           <input name="title" id="Title" type="text" placeholder="Subject" required=""></input>
           <textarea name="content" id="Content" type="text" placeholder="Content..."></textarea>

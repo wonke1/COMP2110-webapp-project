@@ -51,7 +51,6 @@ class Comp2110Portal extends LitElement {
       font-family: "Comfortaa", cursive;
     }
     fact-widget, currency-widget, weather-widget, ad-widget, holiday-widget{
-      position:fixed;
       border: .1px solid black;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -66,25 +65,11 @@ class Comp2110Portal extends LitElement {
     holiday-widget, fact-widget{
       overflow-y: auto;
     }
-    fact-widget{
-      left: 1%;
-      top: 5%;
+    fact-widget, currency-widget, holiday-widget{
+      margin-bottom: 100px;
     }
-    holiday-widget {
-      bottom: 5%;
-      left: 1%;
-    }
-    currency-widget {
-      left: 1%;
-      bottom:37%;
-    }
-    ad-widget{
-      top: 17%;
-      right: 1%;
-    }
-    weather-widget {
-      bottom: 17%;
-      right: 1%
+    ad-widget, weather-widget{
+      margin-bottom: 250px;
     }
     .app-footer {
       font-size: 50%;
