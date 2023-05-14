@@ -31,7 +31,7 @@ class CurrencyWidget extends LitElement {
 
     .amount {
       font-size: 90%;
-      padding-top: 10%;
+      padding-top: 5%;
     }
 
     .CurrencySelector {
@@ -64,18 +64,20 @@ class CurrencyWidget extends LitElement {
     }
 
     button {
-      align-items: center;
-      padding: 6px 14px;
-      font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
-      border-radius: 6px;
-      color: #3D3D3D;
-      background: #fff;
-      border: none;
-      box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1);
-      user-select: none;
-      -webkit-user-select: none;
-      touch-action: manipulation;
-      width: 200px;
+    align-items: center;
+    padding: 6px 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+    border-radius: 6px;
+    color: #3D3D3D;
+    background: #fff;
+    border: none;
+    box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 200px;
+    cursor: pointer;
+    border: 0.1px solid black;
     }
 
     button:hover {

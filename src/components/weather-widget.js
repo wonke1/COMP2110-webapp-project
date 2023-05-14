@@ -41,9 +41,6 @@ class WeatherWidget extends LitElement {
         height: 250px;
         background-color: azure;
     }
-    button {
-        cursor: pointer;
-    }
     #status {
         font-size: 10px;
         margin: -5%;
@@ -72,23 +69,24 @@ class WeatherWidget extends LitElement {
     }
 
     button {
-      align-items: center;
-      padding: 6px 14px;
-      font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
-      border-radius: 6px;
-      color: #3D3D3D;
-      background: #fff;
-      border: none;
-      box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1);
-      user-select: none;
-      -webkit-user-select: none;
-      touch-action: manipulation;
+        align-items: center;
+        padding: 6px 14px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+        border-radius: 6px;
+        color: #3D3D3D;
+        background: #fff;
+        border: 0.1px solid black;
+        box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1);
+        user-select: none;
+        cursor: pointer;
     }
     button:focus {
-      box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
-      outline: 0;
+        border: none;
+        box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
+        outline: 0;
     }
     button:hover {
+        border: none;
         box-shadow: 0px 0px 0px 3.5px rgba(58, 108, 217, 0.25)
       } 
     `;

@@ -14,14 +14,18 @@ class HolidayWidget extends LitElement {
     this.secondDate = '';
     this.thirdDate = '';
     this._AvaliableCountries();
-  }
+  } 
 
   static styles = css`
+
     :host {
         display: block;
         width: 250px;
         height: 250px;
         background-color: azure;
+        height: auto ; 
+        min-height: 250px;
+        background-color: #cee1fd;
     }
   `;
   
@@ -32,7 +36,7 @@ class HolidayWidget extends LitElement {
   _AvaliableCountries() {
     const CountriesURL = `${HolidayWidget.BASE_URL}/api/v3/AvailableCountries`
     
-    //Fetchces all avaliable countries
+    //Fetchces all avaliable countries 
     fetch(CountriesURL)
       .then(response => response.json())
       .then(data => {
