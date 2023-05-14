@@ -89,15 +89,24 @@ class LoginWidget extends LitElement {
     this.user = getUser();
   }
 
+  //Form for the user to sign in through a POST request
   submitForm(event) { 
+
+    //Prevent the form from submitting reseting the page
     event.preventDefault();
+
     const username = event.target.username.value;
     const password = event.target.password.value;
+
+    //Fetch to check if the username and password were correct, & check if there was a error
     fetch(this.loginUrl, {
       method: 'post',
       body: JSON.stringify({username, password}),
       headers: {'Content-Type': 'application/json'}
-    }).then(response => response.json())
+    })
+
+    //Processes data checking for errors, and stores log-in data
+    .then(response => response.json())
     .then(data => {
       if (data.error) {
         throw new Error(data.error);
@@ -105,24 +114,32 @@ class LoginWidget extends LitElement {
       this.user = data;
       storeUser(data);
       location.reload();
-    }).catch(error => {
+    })
+
+    //Catches a error if one occurs
+    .catch(error => {
       console.error(error);
+
+      //Submits a error if one occurs
       this.errorMessage = 'Incorrect username or password';
     });
   }
 
+  //Delete the user information
   logout() {
     deleteUser();
     this.user = null;
     location.reload();
   }
 
+  //Allow the user to retry logging in after inputing incorrect data
   tryAgain() {
     this.errorMessage = null;
     const form = this.querySelector('#Login');
     form.submit();
   }
 
+  //Renders the log in screen, log out screen, and error screen
   render() {
     if (this.user) {
         return html`<label class='loggedIn'>Hi, ${this.user.name}!</label><button class='logout' @click=${this.logout}>Logout</button>`

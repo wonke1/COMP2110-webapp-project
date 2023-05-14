@@ -109,3 +109,16 @@ changing the state of existing tasks (marking them as done).
 
 * Your own design making use of data from an open API (e.g. see [this list](https://mixedanalytics.com/blog/list-actually-free-open-no-auth-needed-apis/)).
 
+## Added features
+
+### `<login-widget>`
+* The login-widget was modified by creating a error screen if the incorrect log-in was inputed, additionally a way back to the main page was added through a button feature.
+
+### `<blog-block>`
+* The blog-block was modified so that the user upon logging in can see a create blog section at the bottom of the screen allowing for blog posts to be made. Additionally the post will be sent through a POST request to the targeted URL creating a post in the portal, that updated in the blog block.
+
+### `<currency-widget>`
+* The currency-widget allows for the convertion of different currencys (USD,EUR,AUD,GBP) displaying the result after the convert! button is pressed
+
+### `<holiday-widget>`
+* The holiday-widget allows for the user to pick a country list which was got through a GET request acquiring the list of avaliable countries, the list is used to pull the neccesary holidays which are used to display all holiday upcoming from the current date at which the country was chosen.
