@@ -92,7 +92,7 @@ class Comp2110Portal extends LitElement {
         <widget-column header="">
           <fact-widget header="Fun Fact of the Day"></fact-widget>
           <currency-widget></currency-widget>
-          <!-- <widget-block header="Third Widget"></widget-block> -->
+          <widget-block header="Third Widget"></widget-block>
         </widget-column>
         <blog-block></blog-block>       
         <widget-column header="">
