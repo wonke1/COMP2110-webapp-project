@@ -138,7 +138,7 @@ class CurrencyWidget extends LitElement {
           const resultElement = this.shadowRoot.querySelector('#result');
 
           //Checks if the result is usable
-          if (data.result !== null && data.result !== undefined) {
+          if (data.result !== null && data.result !== undefined && this.amount > 0) {
             resultElement.innerHTML = data.result.toFixed(2) + ' ' + this.toCurrency;
           } else {
             resultElement.innerHTML = 'Error converting to ' + this.toCurrency;
