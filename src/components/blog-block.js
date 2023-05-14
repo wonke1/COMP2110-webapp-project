@@ -25,8 +25,6 @@ class BlockBlock extends LitElement {
     margin-right: 2%;
     font-family: "Libre Baskerville"
   }
-  .blogpost {
-  }
   .blogpost:nth-child(even) {
     background: #3250509c;
     border-bottom: 2px dotted gainsboro;

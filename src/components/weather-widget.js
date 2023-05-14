@@ -55,7 +55,7 @@ class WeatherWidget extends LitElement {
     }
     p {
         font-family: 'Libre Baskerville';
-      }         
+    }         
     .title {
         font-size: 100%;
         font-weight: bold;
