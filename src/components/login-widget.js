@@ -69,13 +69,14 @@ class LoginWidget extends LitElement {
       font-size: 40px;
       float: center;
       font-family: 'Julius Sans One'
+      text-shadow: -1px 1px 0 #325050, 1px 1px 0 #325050, 1px -1px 0 #325050, -1px -1px 0 #325050;
     }
-    label {
-      text-shadow: -1px 1px 0 gainsboro, 1px 1px 0 gainsboro, 1px -1px 0 gainsboro, -1px -1px 0 gainsboro;
-      color: #325050;
-    }
+
     .loggedIn {
       font-size: 25px;
+      color: gainsboro;
+      text-shadow: -1px 1px 0 #325050, 1px 1px 0 #325050, 1px -1px 0 #325050, -1px -1px 0 #325050;
+
     }
     .username, .password {
       display: block;
