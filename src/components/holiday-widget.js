@@ -14,7 +14,7 @@ class HolidayWidget extends LitElement {
     this.secondDate = '';
     this.thirdDate = '';
     this._AvaliableCountries();
-  } 
+  }
 
   static styles = css`
 
@@ -36,7 +36,7 @@ class HolidayWidget extends LitElement {
   _AvaliableCountries() {
     const CountriesURL = `${HolidayWidget.BASE_URL}/api/v3/AvailableCountries`
     
-    //Fetchces all avaliable countries 
+    //Fetchces all avaliable countries
     fetch(CountriesURL)
       .then(response => response.json())
       .then(data => {
@@ -72,24 +72,11 @@ class HolidayWidget extends LitElement {
             break
           }
 
-        if(data[lastIndex+2].length < data.length) {
-
-          //Locates the next 3 holidays in the public holiday list received from fetch
-          this.firstDate  = `${data[lastIndex].name}: ${data[lastIndex].date}`;
-          this.secondDate = `${data[lastIndex + 1].name}: ${data[lastIndex].date}`;
-          this.thirdDate  = `${data[lastIndex + 2].name}: ${data[lastIndex].date}`;
-          this.requestUpdate();
-
-        } else if (data[lastIndex+1].length < data.length) {
-          this.firstDate  = `${data[lastIndex].name}: ${data[lastIndex].date}`;
-          this.secondDate = `${data[lastIndex + 1].name}: ${data[lastIndex].date}`;
-          this.requestUpdate();
-        } else if(data[lastIndex].length == data.length){
-          this.firstDate  = `${data[lastIndex].name}: ${data[lastIndex].date}`;
-          this.requestUpdate();
-        }
-
-
+        //Locates the next 3 holidays in the public holiday list received from fetch
+        this.firstDate  = `${data[lastIndex].name}: ${data[lastIndex].date}`;
+        this.secondDate = `${data[lastIndex + 1].name}: ${data[lastIndex].date}`;
+        this.thirdDate  = `${data[lastIndex + 2].name}: ${data[lastIndex].date}`;
+        this.requestUpdate();
       })
       .catch(error => {
         console.error(error)

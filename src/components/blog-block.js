@@ -137,9 +137,14 @@ class BlockBlock extends LitElement {
   }
   `;
 
+
   constructor() {
     super();
+
+    //Gets user information
     this.user = getUser();
+
+    //Fetchs posts from blog url
     const url = `${BASE_URL}blog`;
     fetch(url)
         .then(response => response.json())
@@ -148,11 +153,14 @@ class BlockBlock extends LitElement {
         });
   }
 
+  //Used to submit the user created blog to the blog url
   SubmitPost(event) {
 
+    //Variables to hold the value of the blog title and content
     const title = event.target.title.value;
     const content = event.target.content.value;
     
+    //Posts the blog to the blog url, posting the title, and content upon authorization
     fetch(`${BASE_URL}blog`, {
       method: 'POST',
       body: JSON.stringify({title, content}),
@@ -178,9 +186,14 @@ class BlockBlock extends LitElement {
     return paragraphs.map(paragraph => html`<p>${paragraph}</p>`)
   }
   
+  
   render() {
+
+    //Checks if posts can be received
     if (!this._posts)
       return html`Loading...`
+
+    //If user has logged in to the web portal the Create Blog section is displayed
     if (this.user){
       return html`
         <div class="title"> 
@@ -199,6 +212,8 @@ class BlockBlock extends LitElement {
         </form>
         `;
     }
+
+    //Displays blogs posted by other groups 
     return html`
     <div class="title"> 
       Blog Posts
