@@ -7,6 +7,7 @@ import './components/weather-widget.js';
 import './components/widget-column.js';
 import './components/ad-widget.js';
 import './components/login-widget.js';
+import './components/holiday-widget.js'
 
 class Comp2110Portal extends LitElement {
   static properties = {
@@ -45,7 +46,7 @@ class Comp2110Portal extends LitElement {
     header {
       font-family: "Comfortaa", cursive;
     }
-    fact-widget, currency-widget, weather-widget, ad-widget{
+    fact-widget, currency-widget, weather-widget, ad-widget, holiday-widget{
       position:fixed;
       border: .1px solid black;
       border-radius: 10px;
@@ -54,17 +55,21 @@ class Comp2110Portal extends LitElement {
       width: 20vw;
       max-width: 250px;
     } 
-    currency-widget, weather-widget, ad-widget{
+    currency-widget, weather-widget, ad-widget, holiday-widget{
       height:20vw;
       max-height: 250px;
     }
     fact-widget{
       left: 1%;
-      top: 17%;
+      top: 5%;
+    }
+    holiday-widget {
+      bottom: 5%;
+      left: 1%;
     }
     currency-widget {
       left: 1%;
-      bottom:17%;
+      bottom:37%;
     }
     ad-widget{
       top: 17%;
@@ -92,7 +97,7 @@ class Comp2110Portal extends LitElement {
         <widget-column header="">
           <fact-widget header="Fun Fact of the Day"></fact-widget>
           <currency-widget></currency-widget>
-          <widget-block header="Third Widget"></widget-block>
+          <holiday-widget header="Upcoming Holidays"></widget-block>
         </widget-column>
         <blog-block></blog-block>       
         <widget-column header="">
