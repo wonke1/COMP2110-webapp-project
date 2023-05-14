@@ -97,38 +97,50 @@ class CurrencyWidget extends LitElement {
     this.header = 'Currency Conversion';
     this.amount = 0;
     this.fromCurrency = 'AUD';
-    this.toCurrency = 'USD';
+    this.toCurrency = 'AUD';
   }
 
+  //Assign BASE_URL To the API link
   static BASE_URL = "https://api.exchangerate.host"
     
   connectedCallback() {
     super.connectedCallback();
   }  
 
+  //Assigns this.amount to the outcome of the EventListener in render
   _AmountChange(e) {
     this.amount = e.target.value;
   }
 
+  //Assigns this.fromCurrency to the outcome of the EventListener in render
   _FromCurrencyChange(e) {
     this.fromCurrency = e.target.value;
   }
 
+  //Assigns this.toCurrency to the outcome of the EventListener in render
   _ToCurrencyChange(e) {
     this.toCurrency = e.target.value;
   }
 
+
   _ConvertClick(e) {
+
     e.preventDefault();
+
+    //Changes URL based on the users chosen outcomes
     const url = `${CurrencyWidget.BASE_URL}/convert?from=${this.fromCurrency}&to=${this.toCurrency}&amount=${this.amount}`
+
+    //Fetch the result of converted value
     fetch(url) 
        .then(response => response.json())
        .then(data => {
           this._data = data;
           this.requestUpdate();
 
+          //Display the result in #result if succesfully converting otherwise display error in #result
           const resultElement = this.shadowRoot.querySelector('#result');
 
+          //Checks if the result is usable
           if (data.result !== null && data.result !== undefined) {
             resultElement.innerHTML = data.result.toFixed(2) + ' ' + this.toCurrency;
           } else {
@@ -139,6 +151,7 @@ class CurrencyWidget extends LitElement {
      .catch(error => console.error(error));
   }
 
+  //Renders the dispaly for the widget and assign EventListeners
   render() {
     return html`
        <div class="currency-converter">
@@ -154,18 +167,18 @@ class CurrencyWidget extends LitElement {
             <div class="CurrencySelector">
                 <label>From</label>
                 <select id="box1" @change="${this._FromCurrencyChange}">
-                  <option value="AUD" ?selected="${this.fromCurrency === 'AUD'}">AUD</option>
-                  <option value="EUR" ?selected="${this.fromCurrency === 'EUR'}">EUR</option>
-                  <option value="USD" ?selected="${this.fromCurrency === 'USD'}">USD</option>
-                  <option value="GBP" ?selected="${this.fromCurrency === 'GBP'}">GBP</option>
+                  <option value="AUD" >AUD</option>
+                  <option value="EUR" >EUR</option>
+                  <option value="USD" >USD</option>
+                  <option value="GBP" >GBP</option>
                 </select>
 
                 <label>To</label>
                 <select id="box2" @change="${this._ToCurrencyChange}">
-                  <option value="AUD" ?selected="${this.toCurrency === 'AUD'}">AUD</option>
-                  <option value="EUR" ?selected="${this.toCurrency === 'EUR'}">EUR</option>
-                  <option value="USD" ?selected="${this.toCurrency === 'USD'}">USD</option>
-                  <option value="GBP" ?selected="${this.toCurrency === 'GBP'}">GBP</option>
+                  <option value="AUD" >AUD</option>
+                  <option value="EUR" >EUR</option>
+                  <option value="USD" >USD</option>
+                  <option value="GBP" >GBP</option>
                 </select>
             </div>
       
