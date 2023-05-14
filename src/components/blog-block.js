@@ -18,6 +18,7 @@ class BlockBlock extends LitElement {
   static styles = css`
   @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
   @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
   :host {
     margin-left: 300px;
@@ -63,23 +64,32 @@ class BlockBlock extends LitElement {
     margin-top: .5%;
     width:1320px;
     font-size: 90%;
-
+    display:block;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 2px solid #3250509c;
+    background-color: gainsboro;
+    outline: none;
+    margin-bottom: 5px;
+    font-family: 'Comfortaa';
+  }
+  #Content:hover, #Title:hover {
+    box-shadow: 0px 0px 0px 3.5px rgba(58, 108, 217, 0.25)
+  }
+  #Content:focus, #Title:focus {
+    box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.2), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.4);
+    border: 2px solid #325050;
   }
   #Content {
     height: 80px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     cursor: auto;
     text-align: left;
-    border-radius: 3px;
   }
   #PostBlog {
     text-align: center;
     margin-top: .5%;
     font-family: "Julius Sans One";
     font-weight: bold;
-  }
-  #Title{
-
   }
 
   input[type='submit'] {

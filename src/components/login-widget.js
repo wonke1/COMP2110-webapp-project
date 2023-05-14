@@ -15,25 +15,26 @@ class LoginWidget extends LitElement {
 
     :host {
       font-family: 'Julius Sans One'
-        display: block;
+      display: block;
     }
     input {
-      margin: 8px 0;
+      display:block;
       box-sizing: border-box;
       border-radius: 4px;
       border: 2px solid #3250509c;
       background-color: rgba(220, 220, 220, 1);
       outline: none;
+      margin-bottom: 5px;
     }
     input:hover {
       background-color: gainsboro;
       box-shadow: 0px 0px 0px 3.5px rgba(58, 108, 217, 0.25)
     }
     input:focus {
-      box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.3);
+      box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.2), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.4);
       border: 2px solid #325050;
     }
-    input[type='submit'] {
+    .login, .logout {
       background-image: linear-gradient(#0dccea, #0d70ea);
       border: 0;
       border-radius: 4px;
@@ -46,12 +47,31 @@ class LoginWidget extends LitElement {
       padding: 5px 10px;
       text-align: center;
       user-select: none;
-      -webkit-user-select: none;
-      touch-action: manipulation;
+      width: 90%;
+      float: center;
     }
-    input[type='submit']:hover {
+    .login:hover, .logout:hover {
       background-image: linear-gradient(#0d70ea, #ad97fd);
-
+    }
+    .loggedIn {
+      font-size: 50%;
+      font-family: 'Libre Baskerville'
+    }
+    .logout {
+      width: 40% !important;
+      float: center;
+    }
+    .login {
+      margin-top: 10px;
+    }
+    .notice {
+      float: left;
+      font-family: 'Julius Sans One'
+    }
+    label {
+      text-shadow: -.5px .5px 0 gainsboro, .5px .5px 0 gainsboro, .5px -.5px 0 gainsboro, -.5px -.5px 0 gainsboro;
+      color: #325050;
+    }
     `;
 
   constructor() {
@@ -96,7 +116,7 @@ class LoginWidget extends LitElement {
 
   render() {
     if (this.user) {
-        return html`<p>Logged in as ${this.user.name}</p><button @click=${this.logout}>Logout</button>`
+        return html`<label class='loggedIn'>Hi, ${this.user.name}!</label><button class='logout' @click=${this.logout}>Logout</button>`
     } 
 
     if (this.errorMessage) {
@@ -105,10 +125,11 @@ class LoginWidget extends LitElement {
     }
 
     return html`
-      <form id="Login" @submit=${this.submitForm}>
-          <input name="username" placeholder= 'Username' required="">
-          <input type="password" name="password" placeholder='Password' required="">
-          <input type='submit' value='Login'>
+      <form id="Login" @submit=${this.submitForm}>       
+          <label class = 'notice'> Login </label>
+          <input class='username' name="username" placeholder= 'Username' required="">
+          <input class= 'password' type="password" name="password" placeholder='Password' required="">
+          <input class= 'login' type='submit' value='Login'>
       </form>`;
     
   }

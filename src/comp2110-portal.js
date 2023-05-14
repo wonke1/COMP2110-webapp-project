@@ -40,6 +40,7 @@ class Comp2110Portal extends LitElement {
       background-image: url('./src/css/img/header.jpg');
       background-repeat: repeat;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+      padding-bottom: 2%
     }
     .app-footer {
       font-size: calc(12px + 0.5vmin);
@@ -93,6 +94,14 @@ class Comp2110Portal extends LitElement {
       padding-top: 5%;
       font-family: 'Julius Sans One', cursive;
       font-weight: bolder;
+      text-shadow: -1px 1px 0 #325050, 1px 1px 0 #325050, 1px -1px 0 #325050, -1px -1px 0 #325050;
+
+    }
+    login-widget {
+      width: 10vw;
+      position:absolute;
+      right: 1%;
+      top: 0%;
     }
   `;
 
