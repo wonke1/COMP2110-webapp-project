@@ -10,9 +10,6 @@ class HolidayWidget extends LitElement {
     super();
     this.header = 'Widget';
     this.toCountry = '';
-    this.firstDate = '';
-    this.secondDate = '';
-    this.thirdDate = '';
     this._AvaliableCountries();
   }
 
@@ -82,7 +79,6 @@ class HolidayWidget extends LitElement {
     //Grabs the current year
     var CurrentYear = new Date().getFullYear();
     this.toCountry = e.target.value;
-
     //Used to change the API Url depending on the chosen countryCode
     const url = `${HolidayWidget.BASE_URL}/api/v2/publicholidays/${CurrentYear}/${this.toCountry}`
 
@@ -101,11 +97,11 @@ class HolidayWidget extends LitElement {
 
         //Displays all public holidays from the most CurrentDate    
         const resultElement = this.shadowRoot.querySelector('#PublicHolidays');
+        resultElement.innerHTML = '';
         var Index;
         for (Index = lastIndex; Index < data.length; Index++) {
           resultElement.innerHTML += data[Index].name + '<br>' + data[Index].date + "<br><br>";
         }
-        
         this.requestUpdate();
       })
       .catch(error => {
