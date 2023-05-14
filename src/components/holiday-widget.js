@@ -97,10 +97,13 @@ class HolidayWidget extends LitElement {
             break
           }
 
-        //Locates the next 3 holidays in the public holiday list received from fetch
-        this.firstDate  = `${data[lastIndex].name}: ${data[lastIndex].date}`;
-        this.secondDate = `${data[lastIndex + 1].name}: ${data[lastIndex].date}`;
-        this.thirdDate  = `${data[lastIndex + 2].name}: ${data[lastIndex].date}`;
+        //Displays all public holidays from the most CurrentDate    
+        const resultElement = this.shadowRoot.querySelector('#PublicHolidays');
+        var Index;
+        for (Index = lastIndex; Index < data.length; Index++) {
+          resultElement.innerHTML += data[Index].name + ':' + data[Index].date + "\n";
+        }
+        
         this.requestUpdate();
       })
       .catch(error => {
@@ -115,17 +118,15 @@ class HolidayWidget extends LitElement {
   //Renders the html allowing for the holidays to be displayed
   render() {
     return html`
-        <div class='title'>UPCOMING HOLIDAYS</div> <hr>
+        <h3>${this.header}</h3>
         <form id="Country"> 
-          <label> Country </label>
+          <label> Country: </label>
           <select id="SelectCountry" @change="${this._ToCountry}">
           </select>
         </form>
 
         <div id="UpcomingDates">
-          <p id="FirstUpcomingDate">${this.firstDate} </p>
-          <p id="SecondUpcomingDate">${this.secondDate} </p>
-          <p id="ThirdUpcomingDate">${this.thirdDate} </p>
+          <p id="PublicHolidays"></p>
         </div>
     `;
   }
