@@ -20,23 +20,38 @@ class LoginWidget extends LitElement {
     input {
       margin: 8px 0;
       box-sizing: border-box;
-      border: 2px solid #3250509c;
       border-radius: 4px;
-      background-color: rgba(220, 220, 220, 0.1);
+      border: 2px solid #3250509c;
+      background-color: rgba(220, 220, 220, 1);
+      outline: none;
     }
     input:hover {
       background-color: gainsboro;
+      box-shadow: 0px 0px 0px 3.5px rgba(58, 108, 217, 0.25)
     }
-    input:active {
-      
+    input:focus {
+      box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.3);
+      border: 2px solid #325050;
     }
-    input[type="submit"]{
-      border: 1px solid black;
-    }
-    input[type="submit"]:hover {
-      background-color: unset;
+    input[type='submit'] {
+      background-image: linear-gradient(#0dccea, #0d70ea);
+      border: 0;
+      border-radius: 4px;
+      box-shadow: rgba(0, 0, 0, .3) 0 5px 15px;
+      box-sizing: border-box;
+      color: #fff;
       cursor: pointer;
+      font-family: Montserrat,sans-serif;
+      margin: 2px;
+      padding: 5px 10px;
+      text-align: center;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
     }
+    input[type='submit']:hover {
+      background-image: linear-gradient(#0d70ea, #ad97fd);
+
     `;
 
   constructor() {
@@ -85,7 +100,8 @@ class LoginWidget extends LitElement {
     } 
 
     if (this.errorMessage) {
-     return html`<p>${this.errorMessage}</p><button @click=${this.tryAgain}>Try Again</button>`
+      window.alert(this.errorMessage);
+      location.reload();
     }
 
     return html`

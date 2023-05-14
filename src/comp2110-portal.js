@@ -37,7 +37,7 @@ class Comp2110Portal extends LitElement {
       color: gainsboro;
       background-color: black;
       margin-top: 0;
-      background-image: url('./src/css/banner/header.jpg');
+      background-image: url('./src/css/img/header.jpg');
       background-repeat: repeat;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
     }
