@@ -81,10 +81,12 @@ class CurrencyWidget extends LitElement {
     }
 
     button:hover {
+      border: none;
       box-shadow: 0px 0px 0px 3.5px rgba(58, 108, 217, 0.25)
     } 
 
     button:focus {
+      border: none;
       box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1), 0px 0px 0px 3.5px rgba(58, 108, 217, 0.5);
       outline: 0;
     }
@@ -128,7 +130,7 @@ class CurrencyWidget extends LitElement {
           const resultElement = this.shadowRoot.querySelector('#result');
 
           if (data.result !== null && data.result !== undefined) {
-            resultElement.innerHTML = data.result + ' ' + this.toCurrency;
+            resultElement.innerHTML = data.result.toFixed(2) + ' ' + this.toCurrency;
           } else {
             resultElement.innerHTML = 'Error converting to ' + this.toCurrency;
           }

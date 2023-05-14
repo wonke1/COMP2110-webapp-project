@@ -71,7 +71,7 @@ class BlockBlock extends LitElement {
     background-color: gainsboro;
     outline: none;
     margin-bottom: 5px;
-    
+    font-family: 'Comfortaa';
   }
   #Content:hover, #Title:hover {
     box-shadow: 0px 0px 0px 3.5px rgba(58, 108, 217, 0.25)
@@ -194,7 +194,7 @@ class BlockBlock extends LitElement {
         <form id="PostBlog" @submit=${this.SubmitPost}>
           <label class='post'> Add to the Blog! </label> <br>
           <input name="title" id="Title" type="text" placeholder="Subject" required=""></input>
-          <textarea name="content" id="Content" type="text" placeholder="Content"></textarea>
+          <textarea name="content" id="Content" type="text" placeholder="Content..."></textarea>
           <input id="SubmitBlog" type="submit"></input>
         </form>
         `;
