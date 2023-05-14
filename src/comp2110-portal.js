@@ -39,12 +39,9 @@ class Comp2110Portal extends LitElement {
       margin-top: 0;
       background-image: url('./src/css/img/header.jpg');
       background-repeat: repeat;
+      background-attachment: fixed;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
       padding-bottom: 2%
-    }
-    .app-footer {
-      font-size: calc(12px + 0.5vmin);
-      align-items: center;
     }
 
     .app-footer a {
@@ -102,6 +99,17 @@ class Comp2110Portal extends LitElement {
       position:absolute;
       right: 3%;
       top: 2%;
+    }
+    .app-footer {
+      font-size: 18px;
+      background-image: url('./src/css/img/header.jpg');
+      background-repeat: repeat;
+      background-attachment: fixed;
+      margin-bottom: 0;
+      color: gainsboro;
+      text-shadow: -1px 1px 0 #325050, 1px 1px 0 #325050, 1px -1px 0 #325050, -1px -1px 0 #325050;
+      padding: 10px 0 10px 0;
+      text-decoration: overline underline;
     }
   `;
 
