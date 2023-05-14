@@ -78,12 +78,15 @@ class Comp2110Portal extends LitElement {
     h1 {
       margin-top: 0;
       padding-top: 5%;
+      padding-bottom: 2%;
       font-family: 'Julius Sans One', cursive;
       font-weight: bolder;
       text-shadow: -1px 1px 0 #325050, 1px 1px 0 #325050, 1px -1px 0 #325050, -1px -1px 0 #325050;
-
+      margin-left: ${window.innerWidth * 0.35}px;
     }
     login-widget {
+      margin-top: 2%;
+      margin-right: 2.5%;
       width: 10vw;
     }
     .app-footer {
