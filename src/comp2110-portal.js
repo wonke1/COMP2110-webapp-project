@@ -33,6 +33,8 @@ class Comp2110Portal extends LitElement {
       background-color: gainsboro;
     }
     header{
+      display: flex;
+      justify-content: space-between;
       font-size: 170%;
       color: gainsboro;
       background-color: black;
@@ -42,14 +44,13 @@ class Comp2110Portal extends LitElement {
       background-attachment: fixed;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
       padding-bottom: 2%
+      font-family: "Comfortaa", cursive;
     }
 
     .app-footer a {
       margin-left: 5px;
     }
-    header {
-      font-family: "Comfortaa", cursive;
-    }
+  
     fact-widget, currency-widget, weather-widget, ad-widget, holiday-widget{
       border: .1px solid black;
       border-radius: 10px;
@@ -84,9 +85,6 @@ class Comp2110Portal extends LitElement {
     }
     login-widget {
       width: 10vw;
-      position:absolute;
-      right: 3%;
-      top: 2%;
     }
     .app-footer {
       font-size: 18px;
