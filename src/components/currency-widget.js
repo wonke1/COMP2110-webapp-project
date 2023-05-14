@@ -98,22 +98,6 @@ class CurrencyWidget extends LitElement {
 
   static BASE_URL = "https://api.exchangerate.host"
     
-  _fetch() {
-    const url = `${CurrencyWidget.BASE_URL}/convert?from=${this.fromCurrency}&to=${this.toCurrency}&amount=${this.amount}`
-    fetch(url) 
-       .then(response => response.json())
-       .then(data => {
-          this._data = data;
-          this.requestUpdate();
-
-          const resultElement = this.shadowRoot.querySelector('#result');
-          resultElement.innerHTML = `${data.result !== null && data.result !== undefined ? data.result : 'Error converting to'} ${this.toCurrency}`;
-       })
-     .catch(error => console.error(error));
-   
-
-  }
-
   connectedCallback() {
     super.connectedCallback();
   }  
@@ -132,7 +116,23 @@ class CurrencyWidget extends LitElement {
 
   _ConvertClick(e) {
     e.preventDefault();
-    this._fetch();
+    const url = `${CurrencyWidget.BASE_URL}/convert?from=${this.fromCurrency}&to=${this.toCurrency}&amount=${this.amount}`
+    fetch(url) 
+       .then(response => response.json())
+       .then(data => {
+          this._data = data;
+          this.requestUpdate();
+
+          const resultElement = this.shadowRoot.querySelector('#result');
+
+          if (data.result !== null && data.result !== undefined) {
+            resultElement.innerHTML = data.result + ' ' + this.toCurrency;
+          } else {
+            resultElement.innerHTML = 'Error converting to ' + this.toCurrency;
+          }
+        
+       })
+     .catch(error => console.error(error));
   }
 
   render() {
