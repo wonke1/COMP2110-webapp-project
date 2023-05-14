@@ -14,9 +14,6 @@ class CurrencyWidget extends LitElement {
         background-color: #e2cefd;
     }
 
-    #convertForm {
-    }
-
     .title {
       font-size: 100%;
       font-weight: bold;

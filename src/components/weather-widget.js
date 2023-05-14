@@ -180,7 +180,6 @@ class WeatherWidget extends LitElement {
         };
 
         const findMeBtn = this.shadowRoot.querySelector('#find-me');
-        findMeBtn.removeEventListener('click', this.geoFindMe);
 
         this.geoFindMe = geoFindMe.bind(this);
         findMeBtn.addEventListener('click', this.geoFindMe);
