@@ -138,7 +138,7 @@ class CurrencyWidget extends LitElement {
           const resultElement = this.shadowRoot.querySelector('#result');
 
           //Checks if the result is usable
-          if (data.result !== null && data.result !== undefined && this.amount > 0) {
+          if (data.result !== null && this.amount > 0) {
             resultElement.innerHTML = data.result.toFixed(2) + ' ' + this.toCurrency;
           } else {
             resultElement.innerHTML = 'Error converting to ' + this.toCurrency;
@@ -148,7 +148,7 @@ class CurrencyWidget extends LitElement {
      .catch(error => console.error(error));
   }
 
-  //Renders the dispaly for the widget and assign EventListeners
+  //Renders the display for the widget and assign EventListeners
   render() {
     return html`
        <div class="currency-converter">
@@ -159,7 +159,7 @@ class CurrencyWidget extends LitElement {
         <form id="convertForm">
             <div class="amount">
                 <label>Amount</label>
-                <input type="number" id="amount" value="${this.amount}" @input="${this._AmountChange}"/>
+                <input type="number" id="amount" value="${this.amount}" @input="${this._AmountChange}" min="0"></input>
             </div>
             <div class="CurrencySelector">
                 <label>From</label>
