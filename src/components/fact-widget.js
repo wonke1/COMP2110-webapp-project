@@ -69,18 +69,18 @@ class fact extends LitElement {
   render() {
     if (this._data){
       return html`
-          <div class="container">
           <div class="title">Today's Date</div>
           <div class="date">${new Date().toDateString()}</div>
           <hr>
           <div class="title">Fun fact about today</div>
           <div class="fact">${this._data}</div>
-          
-          
-      </div>
     `;
     }else{
-      return html`<p>Loading...</p>`
+      return html`
+          <div class="title">Today's Date</div>
+          <div class="date">${new Date().toDateString()}</div>
+          <hr><p>Loading...</p>
+      `
     }
   }
 }
