@@ -52,7 +52,7 @@ class fact extends LitElement {
     const day = today.getDate();
 
     //setting the url to use when fetching data from API
-    const apiUrl = `https://numbersapi.com/${month}/${day}/date`;
+    const apiUrl = `http://numbersapi.com/${month}/${day}/date`;
 
 
     //FETCHing the fun fact of the day from the API
