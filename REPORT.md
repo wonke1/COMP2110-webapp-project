@@ -1,26 +1,4 @@
-Details of your deployment and where your application can be accessed (URL).
-
-
-
-What you achieved: a short (few paragraphs) description of what your group has implemented; highlight any extensions or additional work you did.
-
-
-
-What did you find challenging: tell us what was hard about completing the project. This might be technical (understanding the API) or organisational (communication within the group). 
-
-
-
-What was rewarding: one or two things that you were able to do that you feel contributed to your understanding of the content of this unit.
-
-
-
-Individual reflection: each team member should write one paragraph on their personal experience (include your name):
-        which widget did you choose and why?
-
-        what was the most challenging part of the project for you?
-
-        Aleksandr Govorukhin
-            I initially chose to write the weather widget but then changed my mind and did the fact of the day instead. I didn't feel like doing something that has been done be# Project Report
+# Project Report
 ## Deployment and URL
 To deploy our application to the web, we’re using the platform Cloudflare Pages. As this project is a collaboration, we first sync our local files via git to ensure we have up-to-date files. Node.js and npm must be installed for us to begin using Cloudflare Pages via a command prompt. To minimise potential technical issues caused by version differences while redeploying from various devices, we use the latest stable releases of npm and node.js.
 
@@ -79,4 +57,4 @@ I initially chose to write the weather widget but then changed my mind and did t
 ### Liam Webb
 
 ### Mohammad Hassouneh
-I chose to develop a weather widget which adjusts its information according to the location of the user (after asking for permission) so I could test my skills by attempting to integrate two separate APIs and making sure they work seamlessly together. I also wanted to produce something as unique and aesthetically pleasing as possible, challenging my CSS skills and my understanding of DOM’s. For example, once I completed the base weather app, I wanted to change specific parts of it after rendering the app but discovered that I could not access any classes or IDs through usual means. I had to learn how to monitor conditions AFTER the app's shadow DOM rendered through the updated() lifecycle method, and gained a massive amount of understanding on how a ShadowDOM interacts with the RealDOM. After many attempts to alter shadowDOM components through a `selectElementbyID`, I discovered that in order to target the shadowDOM, I had to use `this.shadowRoot.querySelector()`. After discovering that more issues appeared, such as when adding an `eventListener()` to the shadowDOM, it must be in the correct place unlike RealDOM `eventListener()`’s which are fairly flexible and lenient on placement. The CSS design for my widget was mostly transferred over from part 1 of this assignment, my web portal design, providing an aesthetic appearance.
+I chose to develop a weather widget which adjusts its information according to the location of the user (after asking for permission) so I could test my skills by attempting to integrate two separate APIs and making sure they work seamlessly together. I also wanted to produce something as unique and aesthetically pleasing as possible, challenging my CSS skills and my understanding of DOM’s. For example, once I completed the base weather app, I wanted to change specific parts of it after rendering the app but discovered that I could not access any classes or IDs through usual means. I had to learn how to monitor conditions AFTER the app's shadow DOM rendered through the updated() lifecycle method, and gained a massive amount of understanding on how a ShadowDOM interacts with the RealDOM. After many attempts to alter shadowDOM components through a `selectElementbyID`, I discovered that in order to target the shadowDOM, I had to use `this.shadowRoot.querySelector()`. After discovering that more issues appeared, such as when adding an `eventListener()` to the shadowDOM, it must be in the correct place unlike RealDOM `eventListener()`’s which are fairly flexible and lenient on placement. The CSS design for my widget was mostly transferred over from part 1 of this assignment, my web portal design, providing an aesthetic appearance. I attempted to incorporate a button to switch temperature units between fahrenheit and celsius to increase user friendliness, however it proved too taxing and would have required more time than it was worth to implement.
