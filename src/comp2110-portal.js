@@ -59,12 +59,7 @@ class Comp2110Portal extends LitElement {
       max-width: 250px;
       height:20vw;
       max-height: 250px;
-    } 
-    fact-widget, currency-widget, weather-widget, ad-widget{
       overflow: hidden;
-    }
-    holiday-widget, fact-widget{
-      overflow-y: auto;
     }
     fact-widget, currency-widget, holiday-widget{
       margin-bottom: 100px;
