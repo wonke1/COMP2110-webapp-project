@@ -33,8 +33,12 @@ class fact extends LitElement {
   }
 
   .fact {
+    box-sizing: border-block;
     font-size: 80%;
     text-align: center;
+    overflow-y: auto;
+    height: 57%;
+    margin-top: 1%;
   }
 
   hr {
