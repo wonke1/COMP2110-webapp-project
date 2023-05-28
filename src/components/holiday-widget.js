@@ -46,10 +46,15 @@ class HolidayWidget extends LitElement {
     }
     #UpcomingDates {
       font-family: 'Libre Baskerville';
+      box-sizing: border-block;
       font-size: 80%;
       text-align: left;
       padding-left: 5px;
       padding-right: 5px;
+      margin-bottom: 1px;
+      height: 60%;
+      margin-top: 2%;
+      overflow-y: auto;
     }
   `;
   
