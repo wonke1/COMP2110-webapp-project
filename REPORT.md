@@ -62,6 +62,8 @@ Our group ran into various challenges in both the front-end and back-end of the 
 
 ## What we learnt
 
+
+
 ## Individual Reflections
 ### Aleksandr Govorukhin
 I initially chose to write the weather widget but then changed my mind and did the fact of the day instead. I didn't feel like doing something that has been done before many times, in the sense of how every website probably has a weather widget but not a fun fact widget. The fact that the “fun fact widget” would be easier to implement also played a role in my decision. It however wasn’t as easy as I had hoped. It had its own challenges such as getting the request url correct, as it had multiple parts or rather was longer than other url requests. As for the project as a whole, the most difficult part for me was the front end part of the widgets and the individual css part. Getting the widget to look exactly like I wanted it to proved to be more difficult than I predicted. It took me a while to come to the look which is now present in the website. I was also quite happy when my team members seemed to approve of my design and used it in their own widgets, or at least that’s how it seemed to me.As a result of this project I have gained a certain level of proficiency in Javascript and HTML which will allow me to pursue further education in this field if I choose to do so.
